@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "LYTNetDiagnoser.h"
+
 @interface ViewController ()<LYTNetDiagnoseDelegate>
 
 @end
@@ -24,8 +25,11 @@
 //    [[LYTNetDiagnoser shareTool] getDNSFromDomain:@"www.71chat.com" respose:^(LYTPingInfo *info) {
 //        NSLog(@"%@",info);
 //    }];
-    [[LYTNetDiagnoser shareTool] testPingRequestDomain:@"www.baidu.com" count:1 respose:^(LYTPingInfo *info) {
-        NSLog(@"%@",info);
+//    [[LYTNetDiagnoser shareTool] testPingRequestDomain:@"www.baidu.com" count:1 respose:^(LYTPingInfo *info) {
+//        NSLog(@"%@",info);
+//    }];
+    [[LYTNetDiagnoser shareTool] testPingRequestHost:@"8.8.8.8" count:5 respose:^(LYTPingInfo *info) {
+        NSLog(@"%@",info.infoStr);
     }];
 }
 

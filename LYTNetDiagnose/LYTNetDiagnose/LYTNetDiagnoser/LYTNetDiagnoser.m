@@ -15,13 +15,17 @@
 #import "LYTNetTimer.h"
 #import "LYTPingInfo.h"
 #import "LYTNetPing.h"
-@interface LYTNetDiagnoser ()<LDNetPingDelegate>
 
+typedef void(^INFOBlock)(LYTPingInfo * statues);
+
+@interface LYTNetDiagnoser ()<LDNetPingDelegate>
 {
     LYTNetInfo  * _baseNetInfo;
     dispatch_queue_t _requestQueue;
+    dispatch_queue_t _serialQueue;
     LYTNetPing * _netPinger;
 }
+@property (nonatomic,copy) INFOBlock infoBlock;
 @end
 @implementation LYTNetDiagnoser
 + (instancetype)shareTool{
@@ -39,6 +43,7 @@
         _netPinger = [[LYTNetPing alloc] init];
         _netPinger.delegate = self;
         _requestQueue = dispatch_queue_create("LYTNetDiagnoserQueue", DISPATCH_QUEUE_CONCURRENT);
+        _serialQueue = dispatch_queue_create("LYTNetDiagnoserQueue", DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }
@@ -121,7 +126,7 @@
 }
 //借助外部
 - (void)getDNSFromDomain:(NSString *)domainName respose:(void(^)(LYTPingInfo * info))resposeblock{
-    dispatch_async(_requestQueue, ^{
+    dispatch_async(_serialQueue, ^{
         // host地址IP列表
         LYTPingInfo *info = [[LYTPingInfo alloc] init];
         long time_start = [LYTNetTimer getMicroSeconds];
@@ -137,22 +142,37 @@
 }
 
 - (void)testPingRequestDomain:(NSString *)domainName count:(NSInteger)times respose:(void(^)(LYTPingInfo * info))resposeblock{
-
-        [self getDNSFromDomain:domainName respose:^(LYTPingInfo *info) {
-            dispatch_async(_requestQueue, ^{
+    
+    [self getDNSFromDomain:domainName respose:^(LYTPingInfo *info) {
+        dispatch_async(_serialQueue, ^{
             for (int i = 0; i < [info.infoArray count]; i++) {
                 [_netPinger runWithHostName:[info.infoArray objectAtIndex:i] normalPing:YES count:times];
+                self.infoBlock =  [resposeblock copy];
             }
-            });
-        }];
-
+        });
+    }];
+    
+}
+- (void)testPingRequestHost:(NSString *)ipAddress count:(NSInteger)times respose:(void(^)(LYTPingInfo * info))resposeblock{
+    dispatch_async(_serialQueue, ^{
+        [_netPinger runWithHostName:ipAddress normalPing:YES count:times];
+        self.infoBlock =  [resposeblock copy];
+    });
 }
 
 #pragma mark - LDNetPingDelegate
 - (void)appendPingLog:(LYTPingInfo *)pingLog{
-    NSLog(@"%@",pingLog);
+//    NSLog(@"%@",pingLog.infoStr);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.infoBlock) {
+            self.infoBlock(pingLog);
+        };
+    });
+    
 }
 - (void)netPingDidEnd{
+//    NSLog(@"ping结束");
+    self.infoBlock = nil;
     
 }
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "LYTPingInfo.h"
 //网络类型
 typedef enum {
     NETWORK_TYPE_NONE = 0,//未连接网络
@@ -19,7 +19,6 @@ typedef enum {
 } NETWORK_TYPE;
 @class LYTNetDiagnoser;
 @class LYTNetInfo;
-@class LYTPingInfo;
 @protocol LYTNetDiagnoseDelegate <NSObject>
 
 /**
@@ -27,11 +26,11 @@ typedef enum {
  */
 - (void)diagnoserBeginScan:(LYTNetDiagnoser *)dignoser;
 
-/**
- 停止扫描
- @param errorInfo 信息
- */
-- (void)diagnoserErrorScan:(LYTNetDiagnoser *)dignoser errorInfo:(LYTNetInfo *)errorInfo;
+///**
+// 停止扫描
+// @param errorInfo 信息
+// */
+//- (void)diagnoserErrorScan:(LYTNetDiagnoser *)dignoser errorInfo:(LYTNetInfo *)errorInfo;
 
 /**
  扫描完毕
@@ -71,6 +70,21 @@ typedef enum {
  */
 - (void)getDNSFromDomain:(NSString *)domainName respose:(void(^)(LYTPingInfo * info))resposeblock;
 
+/**
+ ping 域名延迟测试
+
+ @param domainName 域名 eg “www.baidu.com"
+ @param times 次数
+ @param resposeblock 结果
+ */
 - (void)testPingRequestDomain:(NSString *)domainName count:(NSInteger)times respose:(void(^)(LYTPingInfo * info))resposeblock;
 
+/**
+ ping 主机地址
+
+ @param ipAddress eg ”8.8.8.8“
+ @param times 次数
+ @param resposeblock 结果
+ */
+- (void)testPingRequestHost:(NSString *)ipAddress count:(NSInteger)times respose:(void(^)(LYTPingInfo * info))resposeblock;
 @end
