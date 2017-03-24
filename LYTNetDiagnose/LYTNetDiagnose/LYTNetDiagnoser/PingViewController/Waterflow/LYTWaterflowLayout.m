@@ -8,11 +8,11 @@
 #import "LYTWaterflowLayout.h"
 
 /** 每一行的最大列数 */
-static const int YFDefaultMaxColumns = 3;
+static const int YFDefaultMaxColumns = 10;
 /** 每一行的间距 */
-static const CGFloat YFDefaultRowMargin = 10;
+static const CGFloat YFDefaultRowMargin = 5;
 /** 每一列的间距 */
-static const CGFloat YFDefaultColumnMargin = 10;
+static const CGFloat YFDefaultColumnMargin = 5;
 /** 上下左右的间距 */
 static const UIEdgeInsets YFDefaultInsets = {10, 10, 10, 10};
 

@@ -7,7 +7,7 @@
 
 #import "LYTPingLayoutCell.h"
 #import "LYTPingLayout.h"
-
+#import "LYTColorRank.h"
 
 @interface LYTPingLayoutCell()
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
@@ -16,12 +16,12 @@
 
 
 @implementation LYTPingLayoutCell
-
 - (void)setShop:(LYTPingLayout *)shop
 {
     _shop = shop;
+    self.backgroundColor = [LYTColorRank pingColorWithDurationTime:shop.time];
     
-    self.priceLabel.text = shop.price;
+    self.priceLabel.text = shop.time;
 }
 
 @end

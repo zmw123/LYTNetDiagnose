@@ -145,9 +145,9 @@ typedef void(^INFOBlock)(LYTPingInfo * statues);
     
     [self getDNSFromDomain:domainName respose:^(LYTPingInfo *info) {
         dispatch_async(_serialQueue, ^{
+            self.infoBlock =  [resposeblock copy];
             for (int i = 0; i < [info.infoArray count]; i++) {
                 [_netPinger runWithHostName:[info.infoArray objectAtIndex:i] normalPing:YES count:times];
-                self.infoBlock =  [resposeblock copy];
             }
         });
     }];
@@ -155,14 +155,15 @@ typedef void(^INFOBlock)(LYTPingInfo * statues);
 }
 - (void)testPingRequestHost:(NSString *)ipAddress count:(NSInteger)times respose:(void(^)(LYTPingInfo * info))resposeblock{
     dispatch_async(_serialQueue, ^{
-        [_netPinger runWithHostName:ipAddress normalPing:YES count:times];
         self.infoBlock =  [resposeblock copy];
+
+        [_netPinger runWithHostName:ipAddress normalPing:YES count:times];
     });
 }
 
 #pragma mark - LDNetPingDelegate
 - (void)appendPingLog:(LYTPingInfo *)pingLog{
-//    NSLog(@"%@",pingLog.infoStr);
+    NSLog(@"%@",pingLog.infoStr);
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.infoBlock) {
             self.infoBlock(pingLog);
@@ -171,8 +172,7 @@ typedef void(^INFOBlock)(LYTPingInfo * statues);
     
 }
 - (void)netPingDidEnd{
-//    NSLog(@"ping结束");
-    self.infoBlock = nil;
+    
     
 }
 @end

@@ -28,6 +28,9 @@
 		DEA33BFC1E8507F000AE35F9 /* LYTPingLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33BF91E8507F000AE35F9 /* LYTPingLayoutCell.m */; };
 		DEA33BFD1E8507F000AE35F9 /* LYTPingLayoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA33BFA1E8507F000AE35F9 /* LYTPingLayoutCell.xib */; };
 		DEA33C081E85080300AE35F9 /* LYTWaterflowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33C071E85080300AE35F9 /* LYTWaterflowLayout.m */; };
+		DEA33C0B1E8522A400AE35F9 /* UIColor+Wonderful.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33C091E8522A400AE35F9 /* UIColor+Wonderful.m */; };
+		DEA33C0F1E8522F200AE35F9 /* UIColor+Separate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33C0E1E8522F200AE35F9 /* UIColor+Separate.m */; };
+		DEA33C121E85265D00AE35F9 /* LYTColorRank.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33C111E85265D00AE35F9 /* LYTColorRank.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +72,12 @@
 		DEA33BFA1E8507F000AE35F9 /* LYTPingLayoutCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LYTPingLayoutCell.xib; sourceTree = "<group>"; };
 		DEA33C061E85080300AE35F9 /* LYTWaterflowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTWaterflowLayout.h; sourceTree = "<group>"; };
 		DEA33C071E85080300AE35F9 /* LYTWaterflowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTWaterflowLayout.m; sourceTree = "<group>"; };
+		DEA33C091E8522A400AE35F9 /* UIColor+Wonderful.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Wonderful.m"; sourceTree = "<group>"; };
+		DEA33C0C1E8522D800AE35F9 /* UIColor+Wonderful.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Wonderful.h"; sourceTree = "<group>"; };
+		DEA33C0D1E8522F200AE35F9 /* UIColor+Separate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Separate.h"; sourceTree = "<group>"; };
+		DEA33C0E1E8522F200AE35F9 /* UIColor+Separate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Separate.m"; sourceTree = "<group>"; };
+		DEA33C101E85265D00AE35F9 /* LYTColorRank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTColorRank.h; sourceTree = "<group>"; };
+		DEA33C111E85265D00AE35F9 /* LYTColorRank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTColorRank.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +156,8 @@
 				DEA33BEC1E84C5BD00AE35F9 /* LYTNetPing.m */,
 				DEA33BEE1E84C5C600AE35F9 /* LYTSimplePing.h */,
 				DEA33BEF1E84C5C600AE35F9 /* LYTSimplePing.m */,
+				DEA33C101E85265D00AE35F9 /* LYTColorRank.h */,
+				DEA33C111E85265D00AE35F9 /* LYTColorRank.m */,
 			);
 			path = LYTNetDiagnoser;
 			sourceTree = "<group>";
@@ -186,6 +197,10 @@
 		DEA33C051E85080300AE35F9 /* Waterflow */ = {
 			isa = PBXGroup;
 			children = (
+				DEA33C0D1E8522F200AE35F9 /* UIColor+Separate.h */,
+				DEA33C0E1E8522F200AE35F9 /* UIColor+Separate.m */,
+				DEA33C0C1E8522D800AE35F9 /* UIColor+Wonderful.h */,
+				DEA33C091E8522A400AE35F9 /* UIColor+Wonderful.m */,
 				DEA33C061E85080300AE35F9 /* LYTWaterflowLayout.h */,
 				DEA33C071E85080300AE35F9 /* LYTWaterflowLayout.m */,
 			);
@@ -268,6 +283,7 @@
 				DEA33BE11E836FAE00AE35F9 /* LYTNetWorkReqestTool.m in Sources */,
 				DEA33BEA1E83DA9100AE35F9 /* LYTPingInfo.m in Sources */,
 				DEA33BD51E83601800AE35F9 /* LYTNetDiagnoser.m in Sources */,
+				DEA33C0F1E8522F200AE35F9 /* UIColor+Separate.m in Sources */,
 				DEA33BF01E84C5C600AE35F9 /* LYTSimplePing.m in Sources */,
 				DEA33C081E85080300AE35F9 /* LYTWaterflowLayout.m in Sources */,
 				DEA33BFB1E8507F000AE35F9 /* LYTPingLayout.m in Sources */,
@@ -277,7 +293,9 @@
 				DEA33BC01E835FDE00AE35F9 /* AppDelegate.m in Sources */,
 				DEA33BE41E83810400AE35F9 /* LYTNetInfo.m in Sources */,
 				DEA33BD81E83687700AE35F9 /* LYTNetGetAddress.m in Sources */,
+				DEA33C0B1E8522A400AE35F9 /* UIColor+Wonderful.m in Sources */,
 				DEA33BBD1E835FDE00AE35F9 /* main.m in Sources */,
+				DEA33C121E85265D00AE35F9 /* LYTColorRank.m in Sources */,
 				DEA33BE71E83D77500AE35F9 /* LYTNetTimer.m in Sources */,
 				DEA33BF41E85079500AE35F9 /* LYTWaterflowViewController.m in Sources */,
 			);

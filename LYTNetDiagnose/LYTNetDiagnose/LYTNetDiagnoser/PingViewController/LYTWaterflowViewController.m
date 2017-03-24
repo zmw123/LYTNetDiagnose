@@ -8,10 +8,13 @@
 #import "LYTPingLayout.h"
 #import "LYTPingLayoutCell.h"
 #import "LYTWaterflowLayout.h"
+#import "LYTNetDiagnoser.h"
 
 @interface LYTWaterflowViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, YFWaterflowLayoutDelegate>
 @property (weak, nonatomic) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *shops;
+@property (nonatomic,retain) UIRefreshControl *refreshControl NS_AVAILABLE_IOS(6_0);
+
 @end
 
 @implementation LYTWaterflowViewController
@@ -19,7 +22,7 @@
 - (NSMutableArray *)shops
 {
     if (!_shops) {
-        self.shops = [[NSMutableArray alloc] init];
+        _shops = [[NSMutableArray alloc] init];
     }
     return _shops;
 }
@@ -29,10 +32,7 @@ static NSString * const CellId = @"shop";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"流水布局展示";
-    
-    // 初始化数据
-    [self.shops addObjectsFromArray:@[]];
+    self.title = @"LYTNetDiagnoser.h";
     
     // 创建布局
     LYTWaterflowLayout *layout = [[LYTWaterflowLayout alloc] init];
@@ -43,19 +43,22 @@ static NSString * const CellId = @"shop";
     collectionView.dataSource = self;
     collectionView.delegate = self;
     collectionView.backgroundColor = [UIColor whiteColor];
-    [collectionView registerNib:[UINib nibWithNibName:@"YFShopCell" bundle:nil] forCellWithReuseIdentifier:CellId];
+    [collectionView registerNib:[UINib nibWithNibName:@"LYTPingLayoutCell" bundle:nil] forCellWithReuseIdentifier:CellId];
     [self.view addSubview:collectionView];
     self.collectionView = collectionView;
-    
-    // 添加刷新控件
-    //    [self.collectionView addHeaderWithCallback:^{
-    //        NSLog(@"进入下拉刷新状态");
-    //    }];
-    //    [self.collectionView addFooterWithCallback:^{
-    //        NSLog(@"进入shang拉刷新状态");
-    //    }];
-//    [self.collectionView addHeaderWithTarget:self action:@selector(loadNewShops)];
-//    [self.collectionView addFooterWithTarget:self action:@selector(loadMoreShops)];
+
+    [[LYTNetDiagnoser shareTool] testPingRequestHost:@"www.qq.com" count:100 respose:^(LYTPingInfo *info) {
+        LYTPingLayout *lyout = [[LYTPingLayout alloc] init];
+        lyout.w = 40;
+        lyout.h = 40;
+        lyout.time = [NSString stringWithFormat:@"%.f", info.durationTime];
+        
+        [self.shops addObject:lyout];
+        [self.collectionView reloadData];
+    }];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.scrollEnabled = YES;
+    self.collectionView.bounces = YES;
 }
 
 - (void)loadNewShops
@@ -64,9 +67,10 @@ static NSString * const CellId = @"shop";
         NSArray *newShops = @[];
         [self.shops insertObjects:newShops atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, newShops.count)]];
         [self.collectionView reloadData];
+        [self.refreshControl endRefreshing];
         
         // stop refresh
-//        [self.collectionView headerEndRefreshing];
+        //        [self.collectionView headerEndRefreshing];
     });
 }
 
@@ -78,7 +82,7 @@ static NSString * const CellId = @"shop";
         [self.collectionView reloadData];
         
         // stop refresh
-//        [self.collectionView footerEndRefreshing];
+        //        [self.collectionView footerEndRefreshing];
     });
 }
 
@@ -89,25 +93,6 @@ static NSString * const CellId = @"shop";
     return shop.h * itemWidth / shop.w;
 }
 
-//- (UIEdgeInsets)insetsInWaterflowLayout:(YFWaterflowLayout *)waterflowLayout
-//{
-//    return UIEdgeInsetsMake(30, 30, 30, 30);
-//}
-
-//- (int)maxColumnsInWaterflowLayout:(YFWaterflowLayout *)waterflowLayout
-//{
-//    return 2;
-//}
-
-//- (CGFloat)rowMarginInWaterflowLayout:(YFWaterflowLayout *)waterflowLayout
-//{
-//    return 30;
-//}
-//
-//- (CGFloat)columnMarginInWaterflowLayout:(YFWaterflowLayout *)waterflowLayout
-//{
-//    return 50;
-//}
 
 #pragma mark - <UICollectionViewDataSource>
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
