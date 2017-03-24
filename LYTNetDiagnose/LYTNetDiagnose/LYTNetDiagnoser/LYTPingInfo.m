@@ -11,6 +11,6 @@
 @implementation LYTPingInfo
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"\n时间：%.2f ms\n次数：%zd\n信息：%@\n数组信息:%@\n消息序号：%@\n消息的标示：%@\n",self.durationTime,self.count,self.infoStr,self.infoArray,self.sequence,self.identifier];
+    return [NSString stringWithFormat:@"\n时间：%.2f ms\n信息：%@\n数组信息:%@\n消息序号：%@\n消息的标示：%@\n",self.durationTime,self.infoStr,self.infoArray,self.sequence,self.identifier];
 }
 @end

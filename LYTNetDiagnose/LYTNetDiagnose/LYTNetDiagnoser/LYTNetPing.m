@@ -138,7 +138,7 @@ static NSInteger MAXCOUNT_PING ;
     assert(pinger == self.pinger);
     assert(address != nil);
     _hostAddress = [self DisplayAddressForAddress:address];
-    NSLog(@"pinging %@", _hostAddress);
+//    NSLog(@"pinging %@", _hostAddress);
     
     // Send the first ping straight away.
     _isStartSuccess = YES;

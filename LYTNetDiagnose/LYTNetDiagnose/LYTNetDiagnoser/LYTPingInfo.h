@@ -24,10 +24,7 @@
   消息标示
  */
 @property (copy, nonatomic) NSString *identifier;
-/**
- 次数
- */
-@property (assign, nonatomic) NSInteger count;
+
 
 /**
  携带的信息

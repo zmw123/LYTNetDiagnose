@@ -21,10 +21,10 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
 //    [[LYTNetDiagnoser shareTool] startNetScanWithDelegate:self];
-    [[LYTNetDiagnoser shareTool] getDNSFromDomain:@"www.71chat.com" respose:^(LYTPingInfo *info) {
-        NSLog(@"%@",info);
-    }];
-    [[LYTNetDiagnoser shareTool] testPingRequestDomain:@"www.baidu.com" count:3 respose:^(LYTPingInfo *info) {
+//    [[LYTNetDiagnoser shareTool] getDNSFromDomain:@"www.71chat.com" respose:^(LYTPingInfo *info) {
+//        NSLog(@"%@",info);
+//    }];
+    [[LYTNetDiagnoser shareTool] testPingRequestDomain:@"www.baidu.com" count:1 respose:^(LYTPingInfo *info) {
         NSLog(@"%@",info);
     }];
 }
