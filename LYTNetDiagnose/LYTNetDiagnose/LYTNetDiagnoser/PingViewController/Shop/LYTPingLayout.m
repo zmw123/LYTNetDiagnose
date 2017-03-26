@@ -8,5 +8,12 @@
 #import "LYTPingLayout.h"
 
 @implementation LYTPingLayout
-
+- (void)setTime:(NSString *)time{
+    if ([time floatValue] == 0.f) {
+        _time = @" ！";
+    }else{
+        _time = time;
+    }
+    
+}
 @end

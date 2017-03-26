@@ -14,7 +14,7 @@ static const CGFloat YFDefaultRowMargin = 5;
 /** 每一列的间距 */
 static const CGFloat YFDefaultColumnMargin = 5;
 /** 上下左右的间距 */
-static const UIEdgeInsets YFDefaultInsets = {10, 10, 10, 10};
+static const UIEdgeInsets YFDefaultInsets = {5, 5, 5, 5};
 
 @interface LYTWaterflowLayout()
 /** 存放每一列的最大Y值(整体高度) */

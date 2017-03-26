@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE5CEB1D1E87A6F2001EFF7E /* LYTPingView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5CEB1C1E87A6F2001EFF7E /* LYTPingView.m */; };
+		DE5CEB1F1E87A71E001EFF7E /* LYTPingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE5CEB1E1E87A71E001EFF7E /* LYTPingView.xib */; };
+		DE5CEB221E87A7AD001EFF7E /* LYTHomeLabelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5CEB211E87A7AD001EFF7E /* LYTHomeLabelButton.m */; };
+		DE5CEB251E87B128001EFF7E /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5CEB241E87B128001EFF7E /* UIView+Extension.m */; };
 		DEA33BBD1E835FDE00AE35F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33BBC1E835FDE00AE35F9 /* main.m */; };
 		DEA33BC01E835FDE00AE35F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33BBF1E835FDE00AE35F9 /* AppDelegate.m */; };
 		DEA33BC31E835FDE00AE35F9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33BC21E835FDE00AE35F9 /* ViewController.m */; };
@@ -34,6 +38,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE5CEB1B1E87A6F2001EFF7E /* LYTPingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTPingView.h; sourceTree = "<group>"; };
+		DE5CEB1C1E87A6F2001EFF7E /* LYTPingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTPingView.m; sourceTree = "<group>"; };
+		DE5CEB1E1E87A71E001EFF7E /* LYTPingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LYTPingView.xib; sourceTree = "<group>"; };
+		DE5CEB201E87A7AD001EFF7E /* LYTHomeLabelButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTHomeLabelButton.h; sourceTree = "<group>"; };
+		DE5CEB211E87A7AD001EFF7E /* LYTHomeLabelButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTHomeLabelButton.m; sourceTree = "<group>"; };
+		DE5CEB231E87B128001EFF7E /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		DE5CEB241E87B128001EFF7E /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		DEA33BB81E835FDE00AE35F9 /* LYTNetDiagnose.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LYTNetDiagnose.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA33BBC1E835FDE00AE35F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DEA33BBE1E835FDE00AE35F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -93,6 +104,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE5CEB1A1E87A6DE001EFF7E /* subView */ = {
+			isa = PBXGroup;
+			children = (
+				DE5CEB231E87B128001EFF7E /* UIView+Extension.h */,
+				DE5CEB241E87B128001EFF7E /* UIView+Extension.m */,
+				DE5CEB201E87A7AD001EFF7E /* LYTHomeLabelButton.h */,
+				DE5CEB211E87A7AD001EFF7E /* LYTHomeLabelButton.m */,
+				DE5CEB1B1E87A6F2001EFF7E /* LYTPingView.h */,
+				DE5CEB1C1E87A6F2001EFF7E /* LYTPingView.m */,
+				DE5CEB1E1E87A71E001EFF7E /* LYTPingView.xib */,
+			);
+			path = subView;
+			sourceTree = "<group>";
+		};
 		DEA33BAF1E835FDE00AE35F9 = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +199,7 @@
 		DEA33BF11E85078900AE35F9 /* PingViewController */ = {
 			isa = PBXGroup;
 			children = (
+				DE5CEB1A1E87A6DE001EFF7E /* subView */,
 				DEA33C051E85080300AE35F9 /* Waterflow */,
 				DEA33BF51E8507F000AE35F9 /* Shop */,
 				DEA33BF21E85079500AE35F9 /* LYTWaterflowViewController.h */,
@@ -267,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEA33BFD1E8507F000AE35F9 /* LYTPingLayoutCell.xib in Resources */,
+				DE5CEB1F1E87A71E001EFF7E /* LYTPingView.xib in Resources */,
 				DEA33BCB1E835FDE00AE35F9 /* LaunchScreen.storyboard in Resources */,
 				DEA33BC81E835FDE00AE35F9 /* Assets.xcassets in Resources */,
 				DEA33BC61E835FDE00AE35F9 /* Main.storyboard in Resources */,
@@ -282,9 +309,12 @@
 			files = (
 				DEA33BE11E836FAE00AE35F9 /* LYTNetWorkReqestTool.m in Sources */,
 				DEA33BEA1E83DA9100AE35F9 /* LYTPingInfo.m in Sources */,
+				DE5CEB221E87A7AD001EFF7E /* LYTHomeLabelButton.m in Sources */,
+				DE5CEB251E87B128001EFF7E /* UIView+Extension.m in Sources */,
 				DEA33BD51E83601800AE35F9 /* LYTNetDiagnoser.m in Sources */,
 				DEA33C0F1E8522F200AE35F9 /* UIColor+Separate.m in Sources */,
 				DEA33BF01E84C5C600AE35F9 /* LYTSimplePing.m in Sources */,
+				DE5CEB1D1E87A6F2001EFF7E /* LYTPingView.m in Sources */,
 				DEA33C081E85080300AE35F9 /* LYTWaterflowLayout.m in Sources */,
 				DEA33BFB1E8507F000AE35F9 /* LYTPingLayout.m in Sources */,
 				DEA33BED1E84C5BD00AE35F9 /* LYTNetPing.m in Sources */,
