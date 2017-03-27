@@ -13,6 +13,9 @@
 #import "UIView+Extension.h"
 #import "LYTPingViewController.h"
 
+CGFloat contentsScrollViewH = 150;
+static CGFloat labelsScrollViewH = 44;
+
 @interface LYTWaterflowViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, YFWaterflowLayoutDelegate>
 @property (weak, nonatomic) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *shops;
@@ -50,14 +53,34 @@ static NSString * const CellId = @"LYTPingLayoutCell";
     [self setupLabels];
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [super touchesBegan:touches withEvent:event];
     [self clickPingTest];
 }
+
+/**
+ 顶部视图
+ */
+- (void)setScroolView{
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    _labelsScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,64, self.view.bounds.size.width, labelsScrollViewH)];
+    _labelsScrollView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_labelsScrollView];
+    
+    _contentsScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.labelsScrollView.frame), self.view.bounds.size.width,contentsScrollViewH)];
+    
+    _contentsScrollView.backgroundColor = [UIColor greenColor];
+    _contentsScrollView.pagingEnabled = YES;
+    [self.view addSubview:_contentsScrollView];
+}
+/**
+ 底部视图
+ */
 - (void)setUPCollectionView{
     // 创建布局
     LYTWaterflowLayout *layout = [[LYTWaterflowLayout alloc] init];
     layout.delegate = self;
     // 创建UICollectionView
-    CGRect frame = CGRectMake(0, 0, self.view.bounds.size.width,10 * 40);
+    CGRect frame = CGRectMake(0, 0, self.view.bounds.size.width,self.view.bounds.size.height - CGRectGetMaxY(_contentsScrollView.frame));
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
     collectionView.dataSource = self;
     collectionView.delegate = self;
@@ -71,17 +94,8 @@ static NSString * const CellId = @"LYTPingLayoutCell";
     self.collectionView.bounces = YES;
 
 }
-- (void)setScroolView{
 
-    _labelsScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.collectionView.frame.size.height, self.view.bounds.size.width, 44)];
-    _labelsScrollView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:_labelsScrollView];
-    
-    _contentsScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.labelsScrollView.frame), self.view.bounds.size.width,self.view.bounds.size.height -CGRectGetMaxY(self.labelsScrollView.frame))];
-    _contentsScrollView.backgroundColor = [UIColor greenColor];
-    _contentsScrollView.pagingEnabled = YES;
-    [self.view addSubview:_contentsScrollView];
-}
+
 /**
  *  初始化子控制器
  */

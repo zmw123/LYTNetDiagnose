@@ -8,5 +8,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LYTWaterflowViewController : UIViewController
-
+extern CGFloat contentsScrollViewH;
 @end

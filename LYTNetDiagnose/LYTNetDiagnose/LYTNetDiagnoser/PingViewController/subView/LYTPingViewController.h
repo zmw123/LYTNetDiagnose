@@ -1,5 +1,5 @@
 //
-//  LYTPingView.h
+//  LYTPingViewController.h
 //  LYTNetDiagnose
 //
 //  Created by Vieene on 2017/3/27.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LYTPingView : UIView
+@interface LYTPingViewController : UIViewController
 
 @end
