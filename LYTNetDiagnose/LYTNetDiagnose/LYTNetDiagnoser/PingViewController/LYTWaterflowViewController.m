@@ -11,6 +11,7 @@
 #import "LYTNetDiagnoser.h"
 #import "LYTHomeLabelButton.h"
 #import "UIView+Extension.h"
+#import "LYTPingViewController.h"
 
 @interface LYTWaterflowViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, YFWaterflowLayoutDelegate>
 @property (weak, nonatomic) UICollectionView *collectionView;
@@ -63,21 +64,22 @@ static NSString * const CellId = @"LYTPingLayoutCell";
     collectionView.backgroundColor = [UIColor whiteColor];
     [collectionView registerNib:[UINib nibWithNibName:@"LYTPingLayoutCell" bundle:nil] forCellWithReuseIdentifier:CellId];
     [self.view addSubview:collectionView];
-    self.collectionView = collectionView;
     
+    self.collectionView = collectionView;
     self.collectionView.backgroundColor = [UIColor grayColor];
     self.collectionView.scrollEnabled = YES;
     self.collectionView.bounces = YES;
 
 }
 - (void)setScroolView{
-    NSLog(@"%f",self.collectionView.frame.size.height);
+
     _labelsScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.collectionView.frame.size.height, self.view.bounds.size.width, 44)];
     _labelsScrollView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_labelsScrollView];
     
     _contentsScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.labelsScrollView.frame), self.view.bounds.size.width,self.view.bounds.size.height -CGRectGetMaxY(self.labelsScrollView.frame))];
     _contentsScrollView.backgroundColor = [UIColor greenColor];
+    _contentsScrollView.pagingEnabled = YES;
     [self.view addSubview:_contentsScrollView];
 }
 /**
@@ -85,7 +87,7 @@ static NSString * const CellId = @"LYTPingLayoutCell";
  */
 - (void)setupChildVcs
 {
-    UIViewController *vc0 = [[UIViewController alloc] init];
+    LYTPingViewController *vc0 = [[LYTPingViewController alloc] init];
     vc0.view.backgroundColor = [UIColor orangeColor];
     vc0.title = @"连通性";
     [self addChildViewController:vc0];
