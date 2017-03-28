@@ -16,7 +16,7 @@
 CGFloat contentsScrollViewH = 150;
 static CGFloat labelsScrollViewH = 44;
 
-@interface LYTWaterflowViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, YFWaterflowLayoutDelegate>
+@interface LYTWaterflowViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, YFWaterflowLayoutDelegate,LYTPingViewControllerDelegate,LYTNetDiagnoseDelegate,LYTNetDiagnoseDelegate>
 @property (weak, nonatomic) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *shops;
 @property (nonatomic,retain) UIRefreshControl *refreshControl NS_AVAILABLE_IOS(6_0);
@@ -46,15 +46,12 @@ static NSString * const CellId = @"LYTPingLayoutCell";
     self.title = @"网络测试";
     //
     [self setupChildVcs];
-    //配置collctionView
-    [self setUPCollectionView];
     //
     [self setScroolView];
     [self setupLabels];
-}
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [super touchesBegan:touches withEvent:event];
-    [self clickPingTest];
+    //配置collctionView
+    [self setUPCollectionView];
+
 }
 
 /**
@@ -80,7 +77,7 @@ static NSString * const CellId = @"LYTPingLayoutCell";
     LYTWaterflowLayout *layout = [[LYTWaterflowLayout alloc] init];
     layout.delegate = self;
     // 创建UICollectionView
-    CGRect frame = CGRectMake(0, 0, self.view.bounds.size.width,self.view.bounds.size.height - CGRectGetMaxY(_contentsScrollView.frame));
+    CGRect frame = CGRectMake(0, contentsScrollViewH + labelsScrollViewH, self.view.bounds.size.width,self.view.bounds.size.height - CGRectGetMaxY(_contentsScrollView.frame) + 64);
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
     collectionView.dataSource = self;
     collectionView.delegate = self;
@@ -102,6 +99,7 @@ static NSString * const CellId = @"LYTPingLayoutCell";
 - (void)setupChildVcs
 {
     LYTPingViewController *vc0 = [[LYTPingViewController alloc] init];
+    vc0.delegate = self;
     vc0.view.backgroundColor = [UIColor orangeColor];
     vc0.title = @"连通性";
     [self addChildViewController:vc0];
@@ -166,20 +164,7 @@ static NSString * const CellId = @"LYTPingLayoutCell";
     // 设置输入法
     self.contentsScrollView.delegate = self;
 }
-- (void)clickPingTest{
-    [self.shops removeAllObjects];
-    [self.collectionView reloadData];
-    usleep(1000);
-    [[LYTNetDiagnoser shareTool] testPingRequestHost:@"114.114.114.114" count:100 respose:^(LYTPingInfo *info) {
-        LYTPingLayout *lyout = [[LYTPingLayout alloc] init];
-        lyout.w = 40;
-        lyout.h = 40;
-        lyout.time = [NSString stringWithFormat:@"%.f", info.durationTime];
-        
-        [self.shops addObject:lyout];
-        [self.collectionView reloadData];
-    }];
-}
+
 - (void)loadNewShops
 {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -279,6 +264,62 @@ static NSString * const CellId = @"LYTPingLayoutCell";
     [self.labelsScrollView setContentOffset:offset animated:YES];
 }
 
+#pragma mark - LYTPingViewControllerDelegate
+/**
+ 开始ping一个地址
+ 
+ @param address 地址／主机或者域名
+ */
+- (void)pingViewControllerStartPingAddress:(NSString *)address count:(NSInteger)count{
+    [self.view endEditing:YES];
+    [self.shops removeAllObjects];
+    [self.collectionView reloadData];
+    usleep(1000);
+    [[LYTNetDiagnoser shareTool] testPingRequestHost:address count:count respose:^(LYTPingInfo *info) {
+        LYTPingLayout *lyout = [[LYTPingLayout alloc] init];
+        lyout.w = 40;
+        lyout.h = 40;
+        lyout.time = [NSString stringWithFormat:@"%.f", info.durationTime];
+        
+        [self.shops addObject:lyout];
+        [self.collectionView reloadData];
+    }];
+    [LYTNetDiagnoser shareTool].diagnoseDelegate = self;
+
+}
+
+/**
+ 停止ping一个地址
+ */
+- (void)pingViewControllerStopPing{
+    [[LYTNetDiagnoser shareTool] stopTestPing];
+}
+#pragma mark - LYTNetDiagnoseDelegate
+
+/**
+ 开始扫描
+ */
+- (void)diagnoserBeginScan:(LYTNetDiagnoser *)dignoser{
+    
+}
+
+/**
+ 停止扫描
+ */
+- (void)diagnoserErrorScan:(LYTNetDiagnoser *)dignoser errorInfo:(LYTNetInfo *)errorInfo{
+    
+}
+
+/**
+ 扫描完毕
+ @param info 获取得到的网络信息
+ */
+- (void)diagnoserEndScan:(LYTNetDiagnoser *)dignoser netInfo:(LYTNetInfo *)info{
+    LYTPingViewController *vc = self.childViewControllers[0];
+    if ([vc isKindOfClass:[LYTPingViewController class] ]) {
+        [vc didEndPingAction];
+    }
+}
 
 
 

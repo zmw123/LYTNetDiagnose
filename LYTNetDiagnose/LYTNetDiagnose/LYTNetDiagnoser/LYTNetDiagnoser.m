@@ -160,7 +160,9 @@ typedef void(^INFOBlock)(LYTPingInfo * statues);
         [_netPinger runWithHostName:ipAddress normalPing:YES count:times];
     });
 }
-
+- (void)stopTestPing{
+    [_netPinger stopPing];
+}
 #pragma mark - LDNetPingDelegate
 - (void)appendPingLog:(LYTPingInfo *)pingLog{
     NSLog(@"%@",pingLog.infoStr);
@@ -172,7 +174,11 @@ typedef void(^INFOBlock)(LYTPingInfo * statues);
     
 }
 - (void)netPingDidEnd{
-    
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([self.diagnoseDelegate respondsToSelector:@selector(diagnoserEndScan:netInfo:)]) {
+            [self.diagnoseDelegate diagnoserEndScan:self netInfo:nil];
+        }
+        
+    });
 }
 @end

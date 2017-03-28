@@ -13,7 +13,6 @@
 		DE5CEB251E87B128001EFF7E /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5CEB241E87B128001EFF7E /* UIView+Extension.m */; };
 		DEA33BBD1E835FDE00AE35F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33BBC1E835FDE00AE35F9 /* main.m */; };
 		DEA33BC01E835FDE00AE35F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33BBF1E835FDE00AE35F9 /* AppDelegate.m */; };
-		DEA33BC31E835FDE00AE35F9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33BC21E835FDE00AE35F9 /* ViewController.m */; };
 		DEA33BC61E835FDE00AE35F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEA33BC41E835FDE00AE35F9 /* Main.storyboard */; };
 		DEA33BC81E835FDE00AE35F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEA33BC71E835FDE00AE35F9 /* Assets.xcassets */; };
 		DEA33BCB1E835FDE00AE35F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEA33BC91E835FDE00AE35F9 /* LaunchScreen.storyboard */; };
@@ -49,8 +48,6 @@
 		DEA33BBC1E835FDE00AE35F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DEA33BBE1E835FDE00AE35F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DEA33BBF1E835FDE00AE35F9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DEA33BC11E835FDE00AE35F9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DEA33BC21E835FDE00AE35F9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		DEA33BC51E835FDE00AE35F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DEA33BC71E835FDE00AE35F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEA33BCA1E835FDE00AE35F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -141,8 +138,6 @@
 				DEA33BD21E83600500AE35F9 /* LYTNetDiagnoser */,
 				DEA33BBE1E835FDE00AE35F9 /* AppDelegate.h */,
 				DEA33BBF1E835FDE00AE35F9 /* AppDelegate.m */,
-				DEA33BC11E835FDE00AE35F9 /* ViewController.h */,
-				DEA33BC21E835FDE00AE35F9 /* ViewController.m */,
 				DEA33BC41E835FDE00AE35F9 /* Main.storyboard */,
 				DEA33BC71E835FDE00AE35F9 /* Assets.xcassets */,
 				DEA33BC91E835FDE00AE35F9 /* LaunchScreen.storyboard */,
@@ -319,7 +314,6 @@
 				DEA33BFB1E8507F000AE35F9 /* LYTPingLayout.m in Sources */,
 				DEA33BED1E84C5BD00AE35F9 /* LYTNetPing.m in Sources */,
 				DEA33BFC1E8507F000AE35F9 /* LYTPingLayoutCell.m in Sources */,
-				DEA33BC31E835FDE00AE35F9 /* ViewController.m in Sources */,
 				DEA33BC01E835FDE00AE35F9 /* AppDelegate.m in Sources */,
 				DEA33BE41E83810400AE35F9 /* LYTNetInfo.m in Sources */,
 				DEA33BD81E83687700AE35F9 /* LYTNetGetAddress.m in Sources */,

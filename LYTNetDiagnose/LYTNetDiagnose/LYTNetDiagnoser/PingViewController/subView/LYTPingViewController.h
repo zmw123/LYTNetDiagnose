@@ -23,4 +23,5 @@
 @end
 @interface LYTPingViewController : UIViewController
 @property (nonatomic,weak)id <LYTPingViewControllerDelegate>delegate;
+- (void)didEndPingAction;
 @end

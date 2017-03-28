@@ -26,11 +26,10 @@ typedef enum {
  */
 - (void)diagnoserBeginScan:(LYTNetDiagnoser *)dignoser;
 
-///**
-// 停止扫描
-// @param errorInfo 信息
-// */
-//- (void)diagnoserErrorScan:(LYTNetDiagnoser *)dignoser errorInfo:(LYTNetInfo *)errorInfo;
+/**
+ 停止扫描
+ */
+- (void)diagnoserErrorScan:(LYTNetDiagnoser *)dignoser errorInfo:(LYTNetInfo *)errorInfo;
 
 /**
  扫描完毕
@@ -87,4 +86,9 @@ typedef enum {
  @param resposeblock 结果
  */
 - (void)testPingRequestHost:(NSString *)ipAddress count:(NSInteger)times respose:(void(^)(LYTPingInfo * info))resposeblock;
+
+/**
+ 停止ping测试
+ */
+- (void)stopTestPing;
 @end
