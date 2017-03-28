@@ -9,6 +9,12 @@
 #import "LYTPingViewController.h"
 
 @interface LYTPingViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *textDomain;
+@property (weak, nonatomic) IBOutlet UITextField *pingCount;
+
+- (IBAction)ClickPing:(UIButton *)sender;
+@property (nonatomic,assign) BOOL ping;
+
 
 @end
 
@@ -16,22 +22,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+#pragma mark - private
+- (NSString *)getDomain{
+    return self.textDomain.text;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)ClickPing:(UIButton *)sender {
+    if (_ping == YES) {
+        
+        if([self.delegate respondsToSelector:@selector(pingViewControllerStopPing)]){
+            [self.delegate pingViewControllerStopPing];
+        }
+    }else{
+        if ([self.delegate respondsToSelector:@selector(pingViewControllerStartPingAddress:count:)]) {
+            [self.delegate pingViewControllerStartPingAddress:[self getDomain] count:[self.pingCount.text integerValue]];
+        }
+    }
+    _ping = !_ping;
 }
-*/
-
 @end
