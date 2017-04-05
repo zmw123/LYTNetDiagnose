@@ -11,12 +11,14 @@
 #define title @"title"
 #define desTitle @"desTitle"
 #define imageName @"imageName"
+#define className @"className"
 @implementation LYTConfig
 + (NSArray *)mainViewArray{
     NSArray *array = @[
                               @{title:@"ping检测",
                                 desTitle:@"",
-                                imageName:@""},
+                                imageName:@"",
+                                className:@"LYTPingViewController"},
                               @{title:@"路由跟踪",
                                 desTitle:@"",
                                 imageName:@""},
@@ -35,7 +37,7 @@
                               @{title:@"历史记录",
                                 desTitle:@"",
                                 imageName:@""},
-                              ];
+                    ];
     return array;
 }
 @end
