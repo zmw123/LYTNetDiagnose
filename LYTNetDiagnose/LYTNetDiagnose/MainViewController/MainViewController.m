@@ -30,7 +30,7 @@
 
 - (void)setNav{
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStyleDone target:self action:@selector(clickRightItem:)];
-    self.navigationController.navigationItem.rightBarButtonItem = rightItem;
+    self.navigationItem.rightBarButtonItem = rightItem;
 }
 - (UITableView *)tabView{
     if (_tabView == nil) {
