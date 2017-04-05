@@ -35,9 +35,6 @@
                               @{title:@"历史记录",
                                 desTitle:@"",
                                 imageName:@""},
-                              @{title:@"设置",
-                                desTitle:@"",
-                                imageName:@""}
                               ];
     return array;
 }
