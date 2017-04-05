@@ -77,7 +77,7 @@
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
             </subviews>
-            <color key="backgroundColor" red="0.31837952139999998" green="0.318369925" blue="0.3183753788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fML-mA-Y4v" firstAttribute="leading" secondItem="Vhy-RY-5F1" secondAttribute="leading" id="1JP-uN-zlM"/>
                 <constraint firstItem="hM0-ov-Sch" firstAttribute="leading" secondItem="Xse-Fk-Mth" secondAttribute="leading" id="6tK-GS-bk1"/>

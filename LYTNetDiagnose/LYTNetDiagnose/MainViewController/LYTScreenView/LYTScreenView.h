@@ -11,6 +11,7 @@
 @interface LYTScreenView : UIView
 - (instancetype)initWithFilepath:(NSString *)path;
 - (instancetype)initWithContent:(NSString *)content;
+@property (copy,nonatomic) NSString *content;
 
 /**
  滑动到什么位置

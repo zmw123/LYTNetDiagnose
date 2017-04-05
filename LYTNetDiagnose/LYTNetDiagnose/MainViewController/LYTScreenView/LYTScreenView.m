@@ -10,7 +10,6 @@
 #import "LYTConfig.h"
 @interface LYTScreenView()
 @property (copy,nonatomic) NSString *path;
-@property (copy,nonatomic) NSString *content;
 @property (nonatomic,strong) UITextView * textView;
 
 @end
@@ -30,11 +29,19 @@
     }
     return self;
 }
+- (void)setContent:(NSString *)content{
+    _content = content;
+    _textView.text = content;
+}
 - (void)setUI{
     _textView = [[UITextView alloc] init];
     _textView.backgroundColor = [UIColor blackColor];
     _textView.textColor = [UIColor greenColor];
     _textView.font = [UIFont systemFontOfSize:contentFont];
+    _textView.editable = NO;
+    _textView.layer.cornerRadius = 10;
+    _textView.layer.masksToBounds = YES;
+    [self addSubview:_textView];
 }
 -(void)layoutSubviews{
     [super layoutSubviews];
