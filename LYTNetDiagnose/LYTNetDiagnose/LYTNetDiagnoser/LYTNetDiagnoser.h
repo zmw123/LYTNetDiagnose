@@ -41,9 +41,9 @@ typedef enum {
 @end
 @protocol LYTNetPingDelegate <NSObject>
 
-- (void)didReportSequence:(NSUInteger)seq timeout:(BOOL)isTimeout delay:(NSUInteger)delay packetLoss:(double)lossRate host:(NSString *)ip;
+- (void)pingDidReportSequence:(NSUInteger)seq timeout:(BOOL)isTimeout delay:(NSUInteger)delay packetLoss:(double)lossRate host:(NSString *)ip;
 
-- (void)didStopPingRequest;
+- (void)pingDidStopPingRequest;
 @end
 
 @interface LYTNetDiagnoser : NSObject

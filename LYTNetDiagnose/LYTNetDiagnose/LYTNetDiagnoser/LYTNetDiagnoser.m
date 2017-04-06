@@ -149,12 +149,10 @@ typedef void(^INFOBlock)(LYTPingInfo * statues);
         dispatch_async(_serialQueue, ^{
             self.infoBlock =  [resposeblock copy];
             if(info.infoArray.count){
-                
                 [_netPinger setHost:info.infoArray[0]];
                 _netPinger.delegate = self;
                 _netPinger.pingCount = times;
                 [_netPinger startPing];
-                
             }
         });
     }];
@@ -164,29 +162,21 @@ typedef void(^INFOBlock)(LYTPingInfo * statues);
 - (void)stopTestPing{
     [_netPinger stopPing];
 }
-#pragma mark - LDNetPingDelegate
-- (void)appendPingLog:(LYTPingInfo *)pingLog{
-    NSLog(@"%@",pingLog.infoStr);
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.infoBlock) {
-            self.infoBlock(pingLog);
-        };
-    });
-    
-}
-- (void)netPingDidEnd{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if ([self.diagnoseDelegate respondsToSelector:@selector(diagnoserEndScan:netInfo:)]) {
-            [self.diagnoseDelegate diagnoserEndScan:self netInfo:nil];
-        }
-        
-    });
-}
+
 #pragma mark - LYTPingHelperDelegate
 - (void)didReportSequence:(NSUInteger)seq timeout:(BOOL)isTimeout delay:(NSUInteger)delay packetLoss:(double)lossRate host:(NSString *)ip{
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+    if ([self.pingDelegate respondsToSelector:@selector(pingDidReportSequence:timeout:delay:packetLoss:host:)]) {
+        [self.pingDelegate pingDidReportSequence:seq timeout:isTimeout delay:delay packetLoss:lossRate host:ip];
+    }
+    });
 }
 - (void)didStopPingRequest{
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([self.pingDelegate respondsToSelector:@selector(pingDidStopPingRequest)]) {
+            [self.pingDelegate pingDidStopPingRequest];
+        }
+    });
+  
 }
 @end
