@@ -14,16 +14,16 @@
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import "LYTNetTimer.h"
 #import "LYTPingInfo.h"
-#import "LYTNetPing.h"
+#import "LYTPingHelper.h"
 
 typedef void(^INFOBlock)(LYTPingInfo * statues);
 
-@interface LYTNetDiagnoser ()<LDNetPingDelegate>
+@interface LYTNetDiagnoser ()<SRPingHelperDelegate>
 {
     LYTNetInfo  * _baseNetInfo;
     dispatch_queue_t _requestQueue;
     dispatch_queue_t _serialQueue;
-    LYTNetPing * _netPinger;
+    LYTPingHelper * _netPinger;
 }
 @property (nonatomic,copy) INFOBlock infoBlock;
 @end
@@ -40,7 +40,7 @@ typedef void(^INFOBlock)(LYTPingInfo * statues);
     self = [super init];
     if (self) {
         _baseNetInfo = [[LYTNetInfo alloc] init];
-        _netPinger = [[LYTNetPing alloc] init];
+        _netPinger = [LYTPingHelper sharedInstance];
         _netPinger.delegate = self;
         _requestQueue = dispatch_queue_create("LYTNetDiagnoserQueue", DISPATCH_QUEUE_CONCURRENT);
         _serialQueue = dispatch_queue_create("LYTNetDiagnoserQueue", DISPATCH_QUEUE_SERIAL);
@@ -142,24 +142,25 @@ typedef void(^INFOBlock)(LYTPingInfo * statues);
 }
 
 - (void)testPingRequestDomain:(NSString *)domainName count:(NSInteger)times respose:(void(^)(LYTPingInfo * info))resposeblock{
+    //纯数字
     
+    //域名
     [self getDNSFromDomain:domainName respose:^(LYTPingInfo *info) {
         dispatch_async(_serialQueue, ^{
             self.infoBlock =  [resposeblock copy];
-            for (int i = 0; i < [info.infoArray count]; i++) {
-                [_netPinger runWithHostName:[info.infoArray objectAtIndex:i] normalPing:YES count:times];
+            if(info.infoArray.count){
+                
+                [_netPinger setHost:info.infoArray[0]];
+                _netPinger.delegate = self;
+                _netPinger.pingCount = times;
+                [_netPinger startPing];
+                
             }
         });
     }];
     
 }
-- (void)testPingRequestHost:(NSString *)ipAddress count:(NSInteger)times respose:(void(^)(LYTPingInfo * info))resposeblock{
-    dispatch_async(_serialQueue, ^{
-        self.infoBlock =  [resposeblock copy];
 
-        [_netPinger runWithHostName:ipAddress normalPing:YES count:times];
-    });
-}
 - (void)stopTestPing{
     [_netPinger stopPing];
 }
@@ -180,5 +181,12 @@ typedef void(^INFOBlock)(LYTPingInfo * statues);
         }
         
     });
+}
+#pragma mark - LYTPingHelperDelegate
+- (void)didReportSequence:(NSUInteger)seq timeout:(BOOL)isTimeout delay:(NSUInteger)delay packetLoss:(double)lossRate host:(NSString *)ip{
+    
+}
+- (void)didStopPingRequest{
+    
 }
 @end

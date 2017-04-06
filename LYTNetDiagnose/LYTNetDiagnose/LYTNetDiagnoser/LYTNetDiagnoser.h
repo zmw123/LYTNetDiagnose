@@ -39,10 +39,17 @@ typedef enum {
 
 
 @end
+@protocol LYTNetPingDelegate <NSObject>
 
+- (void)didReportSequence:(NSUInteger)seq timeout:(BOOL)isTimeout delay:(NSUInteger)delay packetLoss:(double)lossRate host:(NSString *)ip;
+
+- (void)didStopPingRequest;
+@end
 
 @interface LYTNetDiagnoser : NSObject
 @property (weak, nonatomic) id<LYTNetDiagnoseDelegate> diagnoseDelegate;
+@property (weak, nonatomic) id<LYTNetPingDelegate> pingDelegate;
+
 + (instancetype)shareTool;
 
 /**
@@ -60,7 +67,6 @@ typedef enum {
 - (NSString *)getNetSIMCardProviderCompany;
 - (NETWORK_TYPE )getNetType;
 
-
 /**
  DNS解析
 
@@ -72,20 +78,11 @@ typedef enum {
 /**
  ping 域名延迟测试
 
- @param domainName 域名 eg “www.baidu.com"
+ @param domainName 域名或者host eg “www.baidu.com"、“8.8.8.8”
  @param times 次数
  @param resposeblock 结果
  */
 - (void)testPingRequestDomain:(NSString *)domainName count:(NSInteger)times respose:(void(^)(LYTPingInfo * info))resposeblock;
-
-/**
- ping 主机地址
-
- @param ipAddress eg ”8.8.8.8“
- @param times 次数
- @param resposeblock 结果
- */
-- (void)testPingRequestHost:(NSString *)ipAddress count:(NSInteger)times respose:(void(^)(LYTPingInfo * info))resposeblock;
 
 /**
  停止ping测试

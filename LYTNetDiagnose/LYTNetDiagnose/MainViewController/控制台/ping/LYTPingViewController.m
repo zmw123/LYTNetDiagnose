@@ -52,13 +52,14 @@
     }else{
         LYWeakSelf;
         [sender setTitle:@"停止" forState:UIControlStateNormal];
-        [[LYTNetDiagnoser shareTool] testPingRequestHost:self.textDomain.text count:[self.pingCount.text integerValue] respose:^(LYTPingInfo *info) {
+        [[LYTNetDiagnoser shareTool] testPingRequestDomain:self.textDomain.text count: [self.pingCount.text integerValue] respose:^(LYTPingInfo *info) {
             [_log appendString:info.infoStr];
             [_log appendFormat:@"\n\n"];
             [weakSelf.screenView setContent:_log];
             NSRange range = {_log.length,0};
             [weakSelf.screenView scrollToRange:range];
         }];
+
     }
     _ping = !_ping;
 }

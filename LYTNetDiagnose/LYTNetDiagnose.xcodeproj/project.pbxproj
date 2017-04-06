@@ -38,7 +38,12 @@
 		59F41A6A1E94E6C50080051F /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 59F41A5E1E94E6C50080051F /* README.md */; };
 		59F41A751E94EC110080051F /* LYTPingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F41A731E94EC110080051F /* LYTPingViewController.m */; };
 		59F41A761E94EC110080051F /* LYTPingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59F41A741E94EC110080051F /* LYTPingViewController.xib */; };
-		DE5CEB251E87B128001EFF7E /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5CEB241E87B128001EFF7E /* UIView+Extension.m */; };
+		59F41A7C1E9618BA0080051F /* LYTSimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F41A791E9618BA0080051F /* LYTSimplePing.m */; };
+		59F41A7D1E9618BA0080051F /* LYTPingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F41A7B1E9618BA0080051F /* LYTPingHelper.m */; };
+		59F41A801E9618D50080051F /* PingResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F41A7F1E9618D50080051F /* PingResult.m */; };
+		59F41A851E9619330080051F /* UIColor+Separate.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F41A821E9619330080051F /* UIColor+Separate.m */; };
+		59F41A861E9619330080051F /* UIColor+Wonderful.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F41A841E9619330080051F /* UIColor+Wonderful.m */; };
+		59F41A891E9619460080051F /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F41A881E9619460080051F /* UIView+Extension.m */; };
 		DEA33BBD1E835FDE00AE35F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33BBC1E835FDE00AE35F9 /* main.m */; };
 		DEA33BC01E835FDE00AE35F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33BBF1E835FDE00AE35F9 /* AppDelegate.m */; };
 		DEA33BC61E835FDE00AE35F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEA33BC41E835FDE00AE35F9 /* Main.storyboard */; };
@@ -52,14 +57,6 @@
 		DEA33BE41E83810400AE35F9 /* LYTNetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33BE31E83810400AE35F9 /* LYTNetInfo.m */; };
 		DEA33BE71E83D77500AE35F9 /* LYTNetTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33BE61E83D77500AE35F9 /* LYTNetTimer.m */; };
 		DEA33BEA1E83DA9100AE35F9 /* LYTPingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33BE91E83DA9100AE35F9 /* LYTPingInfo.m */; };
-		DEA33BED1E84C5BD00AE35F9 /* LYTNetPing.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33BEC1E84C5BD00AE35F9 /* LYTNetPing.m */; };
-		DEA33BF01E84C5C600AE35F9 /* LYTSimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33BEF1E84C5C600AE35F9 /* LYTSimplePing.m */; };
-		DEA33BFB1E8507F000AE35F9 /* LYTPingLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33BF71E8507F000AE35F9 /* LYTPingLayout.m */; };
-		DEA33BFC1E8507F000AE35F9 /* LYTPingLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33BF91E8507F000AE35F9 /* LYTPingLayoutCell.m */; };
-		DEA33BFD1E8507F000AE35F9 /* LYTPingLayoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA33BFA1E8507F000AE35F9 /* LYTPingLayoutCell.xib */; };
-		DEA33C081E85080300AE35F9 /* LYTWaterflowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33C071E85080300AE35F9 /* LYTWaterflowLayout.m */; };
-		DEA33C0B1E8522A400AE35F9 /* UIColor+Wonderful.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33C091E8522A400AE35F9 /* UIColor+Wonderful.m */; };
-		DEA33C0F1E8522F200AE35F9 /* UIColor+Separate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33C0E1E8522F200AE35F9 /* UIColor+Separate.m */; };
 		DEA33C121E85265D00AE35F9 /* LYTColorRank.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33C111E85265D00AE35F9 /* LYTColorRank.m */; };
 /* End PBXBuildFile section */
 
@@ -128,8 +125,18 @@
 		59F41A721E94EC110080051F /* LYTPingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTPingViewController.h; sourceTree = "<group>"; };
 		59F41A731E94EC110080051F /* LYTPingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTPingViewController.m; sourceTree = "<group>"; };
 		59F41A741E94EC110080051F /* LYTPingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LYTPingViewController.xib; sourceTree = "<group>"; };
-		DE5CEB231E87B128001EFF7E /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
-		DE5CEB241E87B128001EFF7E /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		59F41A781E9618BA0080051F /* LYTSimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTSimplePing.h; sourceTree = "<group>"; };
+		59F41A791E9618BA0080051F /* LYTSimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTSimplePing.m; sourceTree = "<group>"; };
+		59F41A7A1E9618BA0080051F /* LYTPingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTPingHelper.h; sourceTree = "<group>"; };
+		59F41A7B1E9618BA0080051F /* LYTPingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTPingHelper.m; sourceTree = "<group>"; };
+		59F41A7E1E9618D50080051F /* PingResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingResult.h; sourceTree = "<group>"; };
+		59F41A7F1E9618D50080051F /* PingResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingResult.m; sourceTree = "<group>"; };
+		59F41A811E9619330080051F /* UIColor+Separate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Separate.h"; sourceTree = "<group>"; };
+		59F41A821E9619330080051F /* UIColor+Separate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Separate.m"; sourceTree = "<group>"; };
+		59F41A831E9619330080051F /* UIColor+Wonderful.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Wonderful.h"; sourceTree = "<group>"; };
+		59F41A841E9619330080051F /* UIColor+Wonderful.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Wonderful.m"; sourceTree = "<group>"; };
+		59F41A871E9619460080051F /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		59F41A881E9619460080051F /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		DEA33BB81E835FDE00AE35F9 /* LYTNetDiagnose.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LYTNetDiagnose.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA33BBC1E835FDE00AE35F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DEA33BBE1E835FDE00AE35F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -153,21 +160,6 @@
 		DEA33BE61E83D77500AE35F9 /* LYTNetTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTNetTimer.m; sourceTree = "<group>"; };
 		DEA33BE81E83DA9100AE35F9 /* LYTPingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTPingInfo.h; sourceTree = "<group>"; };
 		DEA33BE91E83DA9100AE35F9 /* LYTPingInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTPingInfo.m; sourceTree = "<group>"; };
-		DEA33BEB1E84C5BD00AE35F9 /* LYTNetPing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTNetPing.h; sourceTree = "<group>"; };
-		DEA33BEC1E84C5BD00AE35F9 /* LYTNetPing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTNetPing.m; sourceTree = "<group>"; };
-		DEA33BEE1E84C5C600AE35F9 /* LYTSimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTSimplePing.h; sourceTree = "<group>"; };
-		DEA33BEF1E84C5C600AE35F9 /* LYTSimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTSimplePing.m; sourceTree = "<group>"; };
-		DEA33BF61E8507F000AE35F9 /* LYTPingLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTPingLayout.h; sourceTree = "<group>"; };
-		DEA33BF71E8507F000AE35F9 /* LYTPingLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTPingLayout.m; sourceTree = "<group>"; };
-		DEA33BF81E8507F000AE35F9 /* LYTPingLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTPingLayoutCell.h; sourceTree = "<group>"; };
-		DEA33BF91E8507F000AE35F9 /* LYTPingLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTPingLayoutCell.m; sourceTree = "<group>"; };
-		DEA33BFA1E8507F000AE35F9 /* LYTPingLayoutCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LYTPingLayoutCell.xib; sourceTree = "<group>"; };
-		DEA33C061E85080300AE35F9 /* LYTWaterflowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTWaterflowLayout.h; sourceTree = "<group>"; };
-		DEA33C071E85080300AE35F9 /* LYTWaterflowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTWaterflowLayout.m; sourceTree = "<group>"; };
-		DEA33C091E8522A400AE35F9 /* UIColor+Wonderful.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Wonderful.m"; sourceTree = "<group>"; };
-		DEA33C0C1E8522D800AE35F9 /* UIColor+Wonderful.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Wonderful.h"; sourceTree = "<group>"; };
-		DEA33C0D1E8522F200AE35F9 /* UIColor+Separate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Separate.h"; sourceTree = "<group>"; };
-		DEA33C0E1E8522F200AE35F9 /* UIColor+Separate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Separate.m"; sourceTree = "<group>"; };
 		DEA33C101E85265D00AE35F9 /* LYTColorRank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTColorRank.h; sourceTree = "<group>"; };
 		DEA33C111E85265D00AE35F9 /* LYTColorRank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTColorRank.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -220,6 +212,12 @@
 		59F41A191E94AA1E0080051F /* 第三方 */ = {
 			isa = PBXGroup;
 			children = (
+				59F41A871E9619460080051F /* UIView+Extension.h */,
+				59F41A881E9619460080051F /* UIView+Extension.m */,
+				59F41A811E9619330080051F /* UIColor+Separate.h */,
+				59F41A821E9619330080051F /* UIColor+Separate.m */,
+				59F41A831E9619330080051F /* UIColor+Wonderful.h */,
+				59F41A841E9619330080051F /* UIColor+Wonderful.m */,
 				59F41A421E94E6C40080051F /* Masonry */,
 				59F41A3B1E94AA650080051F /* UIImage+Image.h */,
 				59F41A3C1E94AA650080051F /* UIImage+Image.m */,
@@ -333,13 +331,17 @@
 			path = ping;
 			sourceTree = "<group>";
 		};
-		DE5CEB1A1E87A6DE001EFF7E /* subView */ = {
+		59F41A771E9618BA0080051F /* SRPingHepler */ = {
 			isa = PBXGroup;
 			children = (
-				DE5CEB231E87B128001EFF7E /* UIView+Extension.h */,
-				DE5CEB241E87B128001EFF7E /* UIView+Extension.m */,
+				59F41A7E1E9618D50080051F /* PingResult.h */,
+				59F41A7F1E9618D50080051F /* PingResult.m */,
+				59F41A781E9618BA0080051F /* LYTSimplePing.h */,
+				59F41A791E9618BA0080051F /* LYTSimplePing.m */,
+				59F41A7A1E9618BA0080051F /* LYTPingHelper.h */,
+				59F41A7B1E9618BA0080051F /* LYTPingHelper.m */,
 			);
-			path = subView;
+			path = SRPingHepler;
 			sourceTree = "<group>";
 		};
 		DEA33BAF1E835FDE00AE35F9 = {
@@ -389,7 +391,7 @@
 		DEA33BD21E83600500AE35F9 /* LYTNetDiagnoser */ = {
 			isa = PBXGroup;
 			children = (
-				DEA33BF11E85078900AE35F9 /* PingViewController */,
+				59F41A771E9618BA0080051F /* SRPingHepler */,
 				DEA33BD31E83601800AE35F9 /* LYTNetDiagnoser.h */,
 				DEA33BD41E83601800AE35F9 /* LYTNetDiagnoser.m */,
 				DEA33BD61E83687700AE35F9 /* LYTNetGetAddress.h */,
@@ -403,10 +405,6 @@
 				DEA33BE61E83D77500AE35F9 /* LYTNetTimer.m */,
 				DEA33BE81E83DA9100AE35F9 /* LYTPingInfo.h */,
 				DEA33BE91E83DA9100AE35F9 /* LYTPingInfo.m */,
-				DEA33BEB1E84C5BD00AE35F9 /* LYTNetPing.h */,
-				DEA33BEC1E84C5BD00AE35F9 /* LYTNetPing.m */,
-				DEA33BEE1E84C5C600AE35F9 /* LYTSimplePing.h */,
-				DEA33BEF1E84C5C600AE35F9 /* LYTSimplePing.m */,
 				DEA33C101E85265D00AE35F9 /* LYTColorRank.h */,
 				DEA33C111E85265D00AE35F9 /* LYTColorRank.m */,
 			);
@@ -420,41 +418,6 @@
 				DEA33BDB1E8368D800AE35F9 /* libresolv.tbd */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DEA33BF11E85078900AE35F9 /* PingViewController */ = {
-			isa = PBXGroup;
-			children = (
-				DE5CEB1A1E87A6DE001EFF7E /* subView */,
-				DEA33C051E85080300AE35F9 /* Waterflow */,
-				DEA33BF51E8507F000AE35F9 /* Shop */,
-			);
-			path = PingViewController;
-			sourceTree = "<group>";
-		};
-		DEA33BF51E8507F000AE35F9 /* Shop */ = {
-			isa = PBXGroup;
-			children = (
-				DEA33BF61E8507F000AE35F9 /* LYTPingLayout.h */,
-				DEA33BF71E8507F000AE35F9 /* LYTPingLayout.m */,
-				DEA33BF81E8507F000AE35F9 /* LYTPingLayoutCell.h */,
-				DEA33BF91E8507F000AE35F9 /* LYTPingLayoutCell.m */,
-				DEA33BFA1E8507F000AE35F9 /* LYTPingLayoutCell.xib */,
-			);
-			path = Shop;
-			sourceTree = "<group>";
-		};
-		DEA33C051E85080300AE35F9 /* Waterflow */ = {
-			isa = PBXGroup;
-			children = (
-				DEA33C0D1E8522F200AE35F9 /* UIColor+Separate.h */,
-				DEA33C0E1E8522F200AE35F9 /* UIColor+Separate.m */,
-				DEA33C0C1E8522D800AE35F9 /* UIColor+Wonderful.h */,
-				DEA33C091E8522A400AE35F9 /* UIColor+Wonderful.m */,
-				DEA33C061E85080300AE35F9 /* LYTWaterflowLayout.h */,
-				DEA33C071E85080300AE35F9 /* LYTWaterflowLayout.m */,
-			);
-			path = Waterflow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -516,7 +479,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEA33BFD1E8507F000AE35F9 /* LYTPingLayoutCell.xib in Resources */,
 				59F419ED1E949BE50080051F /* MainViewCell.xib in Resources */,
 				DEA33BCB1E835FDE00AE35F9 /* LaunchScreen.storyboard in Resources */,
 				59F41A761E94EC110080051F /* LYTPingViewController.xib in Resources */,
@@ -539,24 +501,21 @@
 				59F41A601E94E6C50080051F /* MASCompositeConstraint.m in Sources */,
 				59F41A361E94AA1E0080051F /* NSObject+MJClass.m in Sources */,
 				59F41A661E94E6C50080051F /* NSArray+MASAdditions.m in Sources */,
-				DE5CEB251E87B128001EFF7E /* UIView+Extension.m in Sources */,
+				59F41A7D1E9618BA0080051F /* LYTPingHelper.m in Sources */,
 				59F41A681E94E6C50080051F /* View+MASAdditions.m in Sources */,
 				59F419E61E949B940080051F /* MainViewController.m in Sources */,
 				59F41A621E94E6C50080051F /* MASConstraintMaker.m in Sources */,
 				59F41A6A1E94E6C50080051F /* README.md in Sources */,
+				59F41A861E9619330080051F /* UIColor+Wonderful.m in Sources */,
+				59F41A7C1E9618BA0080051F /* LYTSimplePing.m in Sources */,
 				DEA33BD51E83601800AE35F9 /* LYTNetDiagnoser.m in Sources */,
 				59F41A671E94E6C50080051F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
-				DEA33C0F1E8522F200AE35F9 /* UIColor+Separate.m in Sources */,
 				59F41A321E94AA1E0080051F /* MJFoundation.m in Sources */,
 				59F41A631E94E6C50080051F /* MASLayoutConstraint.m in Sources */,
-				DEA33BF01E84C5C600AE35F9 /* LYTSimplePing.m in Sources */,
 				59F41A3D1E94AA650080051F /* UIImage+Image.m in Sources */,
-				DEA33C081E85080300AE35F9 /* LYTWaterflowLayout.m in Sources */,
-				DEA33BFB1E8507F000AE35F9 /* LYTPingLayout.m in Sources */,
+				59F41A801E9618D50080051F /* PingResult.m in Sources */,
 				59F41A391E94AA1E0080051F /* NSObject+MJProperty.m in Sources */,
 				59F41A3A1E94AA1E0080051F /* NSString+MJExtension.m in Sources */,
-				DEA33BED1E84C5BD00AE35F9 /* LYTNetPing.m in Sources */,
-				DEA33BFC1E8507F000AE35F9 /* LYTPingLayoutCell.m in Sources */,
 				DEA33BC01E835FDE00AE35F9 /* AppDelegate.m in Sources */,
 				59F41A381E94AA1E0080051F /* NSObject+MJKeyValue.m in Sources */,
 				59F41A341E94AA1E0080051F /* MJPropertyKey.m in Sources */,
@@ -564,8 +523,8 @@
 				59F41A351E94AA1E0080051F /* MJPropertyType.m in Sources */,
 				DEA33BE41E83810400AE35F9 /* LYTNetInfo.m in Sources */,
 				59F419EC1E949BE50080051F /* MainViewCell.m in Sources */,
+				59F41A851E9619330080051F /* UIColor+Separate.m in Sources */,
 				DEA33BD81E83687700AE35F9 /* LYTNetGetAddress.m in Sources */,
-				DEA33C0B1E8522A400AE35F9 /* UIColor+Wonderful.m in Sources */,
 				59F41A411E94E4C00080051F /* LYTScreenView.m in Sources */,
 				59F41A371E94AA1E0080051F /* NSObject+MJCoding.m in Sources */,
 				59F41A691E94E6C50080051F /* ViewController+MASAdditions.m in Sources */,
@@ -575,6 +534,7 @@
 				59F41A751E94EC110080051F /* LYTPingViewController.m in Sources */,
 				59F41A331E94AA1E0080051F /* MJProperty.m in Sources */,
 				59F41A311E94AA1E0080051F /* MJExtensionConst.m in Sources */,
+				59F41A891E9619460080051F /* UIView+Extension.m in Sources */,
 				59F419F31E949E300080051F /* LYTConfig.m in Sources */,
 				59F41A651E94E6C50080051F /* MASViewConstraint.m in Sources */,
 				DEA33BE71E83D77500AE35F9 /* LYTNetTimer.m in Sources */,
