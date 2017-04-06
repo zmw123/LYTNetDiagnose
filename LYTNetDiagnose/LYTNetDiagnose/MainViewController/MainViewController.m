@@ -11,6 +11,7 @@
 #import "MainViewModel.h"
 #import "LYTConfig.h"
 #import "MJExtension.h"
+#import "LYTSDKDataBase.h"
 
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) NSMutableArray * dataSource;
@@ -25,6 +26,7 @@
     self.title = @"网络监测";
     [self.view addSubview:self.tabView];
     [self setNav];
+    [[LYTSDKDataBase shareDatabase] createSqlite];
     
 }
 

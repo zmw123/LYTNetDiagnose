@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LYTPingViewController">
             <connections>
+                <outlet property="addDomain" destination="vVt-CI-2Rv" id="Rnz-5j-5MZ"/>
                 <outlet property="lostLabel" destination="8Uc-Rb-CdS" id="nuQ-uE-afj"/>
                 <outlet property="pingBtn" destination="4jp-Qe-o4e" id="hNu-fU-WgZ"/>
                 <outlet property="pingCount" destination="hM0-ov-Sch" id="rC2-an-809"/>
@@ -35,7 +36,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="www.baidu.com" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xse-Fk-Mth">
-                    <rect key="frame" x="90" y="81" width="215" height="30"/>
+                    <rect key="frame" x="90" y="81" width="180" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="SS8-8z-38p"/>
                     </constraints>
@@ -53,12 +54,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4jp-Qe-o4e">
-                    <rect key="frame" x="265" y="116.5" width="40" height="30"/>
-                    <color key="backgroundColor" red="0.87833553549999999" green="0.87848657370000005" blue="0.8783260584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="40" id="Ced-yu-VgD"/>
-                        <constraint firstAttribute="height" constant="30" id="tgO-4s-Q9O"/>
-                    </constraints>
+                    <rect key="frame" x="275" y="117.5" width="30" height="29"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="开始">
                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -67,7 +63,7 @@
                         <action selector="ClickPing:" destination="-1" eventType="touchUpInside" id="kYX-C3-chI"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hM0-ov-Sch">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hM0-ov-Sch">
                     <rect key="frame" x="90" y="116.5" width="50" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="Vqf-Qt-gDH"/>
@@ -84,19 +80,30 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVt-CI-2Rv">
+                    <rect key="frame" x="275" y="81.5" width="30" height="29"/>
+                    <color key="backgroundColor" red="0.87833553549999999" green="0.87848657370000005" blue="0.8783260584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="➕">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.87833553552627563" green="0.87848657369613647" blue="0.87832605838775635" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fML-mA-Y4v" firstAttribute="leading" secondItem="Vhy-RY-5F1" secondAttribute="leading" id="1JP-uN-zlM"/>
+                <constraint firstItem="4jp-Qe-o4e" firstAttribute="leading" secondItem="vVt-CI-2Rv" secondAttribute="leading" id="5lE-Hg-w3O"/>
                 <constraint firstItem="hM0-ov-Sch" firstAttribute="leading" secondItem="Xse-Fk-Mth" secondAttribute="leading" id="6tK-GS-bk1"/>
+                <constraint firstItem="4jp-Qe-o4e" firstAttribute="centerY" secondItem="fML-mA-Y4v" secondAttribute="centerY" id="ELE-TH-2MT"/>
                 <constraint firstItem="fML-mA-Y4v" firstAttribute="top" secondItem="Vhy-RY-5F1" secondAttribute="bottom" constant="15" id="Haz-zC-iSS"/>
-                <constraint firstItem="4jp-Qe-o4e" firstAttribute="trailing" secondItem="Xse-Fk-Mth" secondAttribute="trailing" id="Mf7-rC-k05"/>
-                <constraint firstAttribute="trailing" secondItem="Xse-Fk-Mth" secondAttribute="trailing" constant="15" id="Qac-5a-6f4"/>
                 <constraint firstItem="Xse-Fk-Mth" firstAttribute="centerY" secondItem="Vhy-RY-5F1" secondAttribute="centerY" id="Td0-Rc-l0L"/>
                 <constraint firstItem="Vhy-RY-5F1" firstAttribute="top" secondItem="NFe-dr-btb" secondAttribute="top" constant="85" id="W46-3M-jwI"/>
+                <constraint firstItem="4jp-Qe-o4e" firstAttribute="trailing" secondItem="vVt-CI-2Rv" secondAttribute="trailing" id="XCV-gb-Ccq"/>
+                <constraint firstItem="vVt-CI-2Rv" firstAttribute="centerY" secondItem="Xse-Fk-Mth" secondAttribute="centerY" id="XfY-BN-t5b"/>
                 <constraint firstItem="Xse-Fk-Mth" firstAttribute="leading" secondItem="Vhy-RY-5F1" secondAttribute="trailing" constant="5" id="ZHC-Xm-BIP"/>
-                <constraint firstItem="4jp-Qe-o4e" firstAttribute="centerY" secondItem="hM0-ov-Sch" secondAttribute="centerY" id="ZSJ-Jr-WqD"/>
                 <constraint firstItem="8Uc-Rb-CdS" firstAttribute="centerY" secondItem="hM0-ov-Sch" secondAttribute="centerY" id="f93-bY-UoM"/>
+                <constraint firstItem="vVt-CI-2Rv" firstAttribute="leading" secondItem="Xse-Fk-Mth" secondAttribute="trailing" constant="5" id="kNX-ja-JYz"/>
+                <constraint firstAttribute="trailing" secondItem="vVt-CI-2Rv" secondAttribute="trailing" constant="15" id="mCz-ZG-BTT"/>
                 <constraint firstItem="Vhy-RY-5F1" firstAttribute="leading" secondItem="NFe-dr-btb" secondAttribute="leading" multiplier="115" constant="15" id="qvc-8c-Cw8"/>
                 <constraint firstItem="hM0-ov-Sch" firstAttribute="centerY" secondItem="fML-mA-Y4v" secondAttribute="centerY" id="slr-af-inn"/>
                 <constraint firstItem="fML-mA-Y4v" firstAttribute="trailing" secondItem="Vhy-RY-5F1" secondAttribute="trailing" id="w2n-hq-9b2"/>
@@ -105,7 +112,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
-            <point key="canvasLocation" x="-448" y="-294.5"/>
+            <point key="canvasLocation" x="-448" y="-295"/>
         </view>
     </objects>
 </document>

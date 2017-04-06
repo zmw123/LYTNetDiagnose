@@ -10,6 +10,8 @@
 #import "LYTScreenView.h"
 #import "LYTNetDiagnoser.h"
 #import "LYTConfig.h"
+#import "LYTSDKDataBase+LYTServersList.h"
+
 @interface LYTPingViewController ()<LYTNetPingDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *textDomain;
 @property (weak, nonatomic) IBOutlet UITextField *pingCount;
@@ -22,6 +24,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *pingBtn;
 
+@property (weak, nonatomic) IBOutlet UIButton *addDomain;
 
 @end
 static NSMutableString * _log;
@@ -32,8 +35,15 @@ static NSMutableString * _log;
     _log = [@"" mutableCopy];
     [self screenView];
     
+    [self.addDomain addTarget:self action:@selector(addDomain:) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[LYTNetDiagnoser shareTool] stopTestPing];
+}
 
 #pragma mark - private
 - (NSString *)getDomain{
@@ -47,6 +57,7 @@ static NSMutableString * _log;
     return _screenView;
 }
 - (IBAction)ClickPing:(UIButton *)sender {
+    [self.view endEditing:YES];
     if (_ping == YES) {
         [sender setTitle:@"开始" forState:UIControlStateNormal];
 
@@ -67,10 +78,9 @@ static NSMutableString * _log;
     }
     _ping = !_ping;
 }
-- (void)didEndPingAction{
-    _ping = NO;
-    [self.pingBtn setTitle:@"开始" forState:UIControlStateNormal];
 
+- (void)didEndPingAction{
+    [[LYTNetDiagnoser shareTool] stopTestPing];
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
@@ -85,7 +95,30 @@ static NSMutableString * _log;
         make.bottom.mas_equalTo(self.view).offset(-15);
     }];
 }
-#pragma mark -
+- (void)addDomain:(UIButton *)btn{
+    [self.view endEditing:YES];
+    [[LYTSDKDataBase shareDatabase] dbAllServersSucceed:^(NSArray<NSString *> *servers) {
+        __block BOOL exist = NO;
+        [servers enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSLog(@"%@",obj);
+            if ([obj isEqualToString:self.textDomain.text]) {
+                exist = YES;
+            }
+        }];
+        if (exist) {
+            NSLog(@"已经存在");
+        }
+        else
+        {
+        [[LYTSDKDataBase shareDatabase] dbInsertserver:self.textDomain.text succeed:^(BOOL result) {
+            NSLog(@"添加成功");
+            
+        }];
+        }
+    }];
+   
+}
+#pragma mark - LYTNetPingDelegate
 - (void)pingDidReportSequence:(NSUInteger)seq timeout:(BOOL)isTimeout delay:(NSUInteger)delay packetLoss:(double)lossRate host:(NSString *)ip{
 //    64 bytes from 163.177.151.110: icmp_seq=1 ttl=49 time=8.770 ms
 //    Request timeout for icmp_seq 0
@@ -102,6 +135,9 @@ static NSMutableString * _log;
 }
 
 - (void)pingDidStopPingRequest{
+    _ping = NO;
+    [self.pingBtn setTitle:@"开始" forState:UIControlStateNormal];
     
+
 }
 @end
