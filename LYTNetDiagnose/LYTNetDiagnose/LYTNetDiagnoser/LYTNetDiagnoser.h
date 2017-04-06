@@ -82,7 +82,7 @@ typedef enum {
  @param times 次数
  @param resposeblock 结果
  */
-- (void)testPingRequestDomain:(NSString *)domainName count:(NSInteger)times respose:(void(^)(LYTPingInfo * info))resposeblock;
+- (void)testPingRequestDomain:(NSString *)domainName count:(NSInteger)times respose:(void(^)(LYTPingInfo * info))resposeblock error:(void(^)(NSString *error))errorBlock;
 
 /**
  停止ping测试
