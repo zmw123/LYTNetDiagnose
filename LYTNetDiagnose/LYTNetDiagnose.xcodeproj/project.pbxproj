@@ -15,6 +15,12 @@
 		594C9DFC1E964E6300B5C7D3 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 594C9DFB1E964E6300B5C7D3 /* libsqlite3.0.tbd */; };
 		594C9E001E964EF800B5C7D3 /* LYTSDKDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C9DFF1E964EF800B5C7D3 /* LYTSDKDataBase.m */; };
 		594C9E061E9650C000B5C7D3 /* LYTSDKDataBase+LYTServersList.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C9E051E9650C000B5C7D3 /* LYTSDKDataBase+LYTServersList.m */; };
+		5966AC831E97230900A5A870 /* TYHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5966AC821E97230900A5A870 /* TYHBaseViewController.m */; };
+		5966AC861E9723B000A5A870 /* TYHbaseNavigationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5966AC851E9723B000A5A870 /* TYHbaseNavigationVC.m */; };
+		5966AC8C1E97241A00A5A870 /* UIImage+Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 5966AC8B1E97241A00A5A870 /* UIImage+Round.m */; };
+		5966AC8F1E97242B00A5A870 /* UIImage+GreyImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5966AC8E1E97242B00A5A870 /* UIImage+GreyImage.m */; };
+		5966AC921E97243900A5A870 /* UIColor+TYHColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5966AC911E97243900A5A870 /* UIColor+TYHColor.m */; };
+		5966AC951E97244B00A5A870 /* UIImage+CH.m in Sources */ = {isa = PBXBuildFile; fileRef = 5966AC941E97244B00A5A870 /* UIImage+CH.m */; };
 		59F419E61E949B940080051F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F419E51E949B940080051F /* MainViewController.m */; };
 		59F419EC1E949BE50080051F /* MainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F419EA1E949BE50080051F /* MainViewCell.m */; };
 		59F419ED1E949BE50080051F /* MainViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59F419EB1E949BE50080051F /* MainViewCell.xib */; };
@@ -85,6 +91,18 @@
 		594C9DFF1E964EF800B5C7D3 /* LYTSDKDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTSDKDataBase.m; sourceTree = "<group>"; };
 		594C9E041E9650C000B5C7D3 /* LYTSDKDataBase+LYTServersList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LYTSDKDataBase+LYTServersList.h"; sourceTree = "<group>"; };
 		594C9E051E9650C000B5C7D3 /* LYTSDKDataBase+LYTServersList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LYTSDKDataBase+LYTServersList.m"; sourceTree = "<group>"; };
+		5966AC811E97230900A5A870 /* TYHBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYHBaseViewController.h; sourceTree = "<group>"; };
+		5966AC821E97230900A5A870 /* TYHBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYHBaseViewController.m; sourceTree = "<group>"; };
+		5966AC841E9723B000A5A870 /* TYHbaseNavigationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYHbaseNavigationVC.h; sourceTree = "<group>"; };
+		5966AC851E9723B000A5A870 /* TYHbaseNavigationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYHbaseNavigationVC.m; sourceTree = "<group>"; };
+		5966AC8A1E97241A00A5A870 /* UIImage+Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Round.h"; sourceTree = "<group>"; };
+		5966AC8B1E97241A00A5A870 /* UIImage+Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Round.m"; sourceTree = "<group>"; };
+		5966AC8D1E97242B00A5A870 /* UIImage+GreyImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GreyImage.h"; sourceTree = "<group>"; };
+		5966AC8E1E97242B00A5A870 /* UIImage+GreyImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GreyImage.m"; sourceTree = "<group>"; };
+		5966AC901E97243900A5A870 /* UIColor+TYHColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TYHColor.h"; sourceTree = "<group>"; };
+		5966AC911E97243900A5A870 /* UIColor+TYHColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TYHColor.m"; sourceTree = "<group>"; };
+		5966AC931E97244B00A5A870 /* UIImage+CH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CH.h"; sourceTree = "<group>"; };
+		5966AC941E97244B00A5A870 /* UIImage+CH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CH.m"; sourceTree = "<group>"; };
 		59F419E41E949B940080051F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		59F419E51E949B940080051F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		59F419E91E949BE50080051F /* MainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewCell.h; sourceTree = "<group>"; };
@@ -234,6 +252,10 @@
 		59F419E31E949B940080051F /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
+				5966AC841E9723B000A5A870 /* TYHbaseNavigationVC.h */,
+				5966AC851E9723B000A5A870 /* TYHbaseNavigationVC.m */,
+				5966AC811E97230900A5A870 /* TYHBaseViewController.h */,
+				5966AC821E97230900A5A870 /* TYHBaseViewController.m */,
 				59F41A6B1E94E9D30080051F /* 控制台 */,
 				59F41A3E1E94E4A60080051F /* LYTScreenView */,
 				59F419E71E949BB30080051F /* View */,
@@ -266,6 +288,14 @@
 		59F41A191E94AA1E0080051F /* 第三方 */ = {
 			isa = PBXGroup;
 			children = (
+				5966AC931E97244B00A5A870 /* UIImage+CH.h */,
+				5966AC941E97244B00A5A870 /* UIImage+CH.m */,
+				5966AC901E97243900A5A870 /* UIColor+TYHColor.h */,
+				5966AC911E97243900A5A870 /* UIColor+TYHColor.m */,
+				5966AC8D1E97242B00A5A870 /* UIImage+GreyImage.h */,
+				5966AC8E1E97242B00A5A870 /* UIImage+GreyImage.m */,
+				5966AC8A1E97241A00A5A870 /* UIImage+Round.h */,
+				5966AC8B1E97241A00A5A870 /* UIImage+Round.m */,
 				594C9DEA1E964E2100B5C7D3 /* LYTdb */,
 				59F41A871E9619460080051F /* UIView+Extension.h */,
 				59F41A881E9619460080051F /* UIView+Extension.m */,
@@ -562,11 +592,13 @@
 				59F41A681E94E6C50080051F /* View+MASAdditions.m in Sources */,
 				59F419E61E949B940080051F /* MainViewController.m in Sources */,
 				59F41A621E94E6C50080051F /* MASConstraintMaker.m in Sources */,
+				5966AC831E97230900A5A870 /* TYHBaseViewController.m in Sources */,
 				59F41A6A1E94E6C50080051F /* README.md in Sources */,
 				59F41A861E9619330080051F /* UIColor+Wonderful.m in Sources */,
 				59F41A7C1E9618BA0080051F /* LYTSimplePing.m in Sources */,
 				DEA33BD51E83601800AE35F9 /* LYTNetDiagnoser.m in Sources */,
 				59F41A671E94E6C50080051F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				5966AC921E97243900A5A870 /* UIColor+TYHColor.m in Sources */,
 				59F41A321E94AA1E0080051F /* MJFoundation.m in Sources */,
 				59F41A631E94E6C50080051F /* MASLayoutConstraint.m in Sources */,
 				59F41A3D1E94AA650080051F /* UIImage+Image.m in Sources */,
@@ -581,13 +613,17 @@
 				594C9DF81E964E2100B5C7D3 /* LYTDatabasePool.m in Sources */,
 				59F41A341E94AA1E0080051F /* MJPropertyKey.m in Sources */,
 				59F41A641E94E6C50080051F /* MASViewAttribute.m in Sources */,
+				5966AC951E97244B00A5A870 /* UIImage+CH.m in Sources */,
 				59F41A351E94AA1E0080051F /* MJPropertyType.m in Sources */,
 				DEA33BE41E83810400AE35F9 /* LYTNetInfo.m in Sources */,
 				594C9DFA1E964E2100B5C7D3 /* LYTResultSet.m in Sources */,
 				59F419EC1E949BE50080051F /* MainViewCell.m in Sources */,
 				59F41A851E9619330080051F /* UIColor+Separate.m in Sources */,
+				5966AC8F1E97242B00A5A870 /* UIImage+GreyImage.m in Sources */,
 				DEA33BD81E83687700AE35F9 /* LYTNetGetAddress.m in Sources */,
 				59F41A411E94E4C00080051F /* LYTScreenView.m in Sources */,
+				5966AC8C1E97241A00A5A870 /* UIImage+Round.m in Sources */,
+				5966AC861E9723B000A5A870 /* TYHbaseNavigationVC.m in Sources */,
 				59F41A371E94AA1E0080051F /* NSObject+MJCoding.m in Sources */,
 				59F41A691E94E6C50080051F /* ViewController+MASAdditions.m in Sources */,
 				DEA33BBD1E835FDE00AE35F9 /* main.m in Sources */,

@@ -147,7 +147,6 @@ typedef void(^INFOBlock)(LYTPingInfo * statues);
     //域名
     [self getDNSFromDomain:domainName respose:^(LYTPingInfo *info) {
         dispatch_async(_serialQueue, ^{
-            
             if(info.infoArray.count){
                 self.infoBlock =  [resposeblock copy];
                 [_netPinger setHost:info.infoArray[0]];

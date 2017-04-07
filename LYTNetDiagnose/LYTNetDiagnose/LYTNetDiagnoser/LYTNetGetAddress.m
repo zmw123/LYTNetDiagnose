@@ -222,11 +222,11 @@
     
     //由于在IPV6环境下不能用IPV4的地址进行连接监测
     //所以只返回IPV6的服务器DNS地址
-    NSArray *IPV6DNSs = [self getIPV6DNSWithHostName:hostName];
-    if (IPV6DNSs && IPV6DNSs.count > 0) {
-        [result removeAllObjects];
-        [result addObjectsFromArray:IPV6DNSs];
-    }
+//    NSArray *IPV6DNSs = [self getIPV6DNSWithHostName:hostName];
+//    if (IPV6DNSs && IPV6DNSs.count > 0) {
+//        [result removeAllObjects];
+//        [result addObjectsFromArray:IPV6DNSs];
+//    }
     
     return [NSArray arrayWithArray:result];
 }

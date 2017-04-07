@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="1055" y="-641"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Hbase NavigationVC-->
         <scene sceneID="aer-53-CK5">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F6T-Bd-c8p" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F6T-Bd-c8p" customClass="TYHbaseNavigationVC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lnc-D1-M5D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

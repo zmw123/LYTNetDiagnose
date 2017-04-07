@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TYHBaseViewController.h"
 @protocol LYTPingViewControllerDelegate <NSObject>
 
 /**
@@ -21,7 +22,7 @@
  */
 - (void)pingViewControllerStopPing;
 @end
-@interface LYTPingViewController : UIViewController
+@interface LYTPingViewController : TYHBaseViewController
 @property (nonatomic,weak)id <LYTPingViewControllerDelegate>delegate;
 - (void)didEndPingAction;
 @end

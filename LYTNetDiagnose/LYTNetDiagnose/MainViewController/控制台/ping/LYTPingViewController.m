@@ -32,6 +32,7 @@ static NSMutableString * _log;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"ping检测";
     _log = [@"" mutableCopy];
     [self screenView];
     
@@ -109,19 +110,18 @@ static NSMutableString * _log;
     [[LYTSDKDataBase shareDatabase] dbAllServersSucceed:^(NSArray<NSString *> *servers) {
         __block BOOL exist = NO;
         [servers enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            NSLog(@"%@",obj);
             if ([obj isEqualToString:self.textDomain.text]) {
                 exist = YES;
             }
         }];
         if (exist) {
-            NSLog(@"已经存在");
+
+            [self addLog:@"该域名主机已经存在\n"];
         }
         else
         {
         [[LYTSDKDataBase shareDatabase] dbInsertserver:self.textDomain.text succeed:^(BOOL result) {
-            NSLog(@"添加成功");
-            
+            [self addLog:@"添加域名主机成功"];
         }];
         }
     }];
@@ -132,21 +132,24 @@ static NSMutableString * _log;
 //    64 bytes from 163.177.151.110: icmp_seq=1 ttl=49 time=8.770 ms
 //    Request timeout for icmp_seq 0
     if (!isTimeout) {
-      [_log appendFormat:@"64 bytes from %@ : icmp_seq=%zd time=%zd ms \n",ip,seq,delay];
+        [self addLog:[NSString stringWithFormat:@"64 bytes from %@ : icmp_seq=%zd time=%zd ms \n",ip,seq,delay]];
     }else{
-        [_log appendFormat:@"Request timeout for icmp_seq %zd \n",seq];
+        [self addLog:[NSString stringWithFormat:@"Request timeout for icmp_seq %zd \n",seq]];
     }
     self.lostLabel.text = [NSString stringWithFormat:@"丢包率:%.0f%%",lossRate];
-    _screenView.content = _log;
-    NSRange range = {_log.length,0};
-    [_screenView scrollToRange:range];
+ 
     
 }
 
 - (void)pingDidStopPingRequest{
     _ping = NO;
     [self.pingBtn setTitle:@"开始" forState:UIControlStateNormal];
+}
+- (void)addLog:(NSString *)log{
+    [_log appendString:log];
+    _screenView.content = _log;
+    NSRange range = {_log.length,0};
+    [_screenView scrollToRange:range];
     
-
 }
 @end
