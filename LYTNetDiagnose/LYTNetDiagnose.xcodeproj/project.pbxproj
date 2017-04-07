@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59086E9E1E976E8C0069965A /* LYTDNSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59086E9C1E976E8C0069965A /* LYTDNSViewController.m */; };
+		59086E9F1E976E8C0069965A /* LYTDNSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59086E9D1E976E8C0069965A /* LYTDNSViewController.xib */; };
 		594C9DF61E964E2100B5C7D3 /* LYTDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C9DEC1E964E2100B5C7D3 /* LYTDatabase.m */; };
 		594C9DF71E964E2100B5C7D3 /* LYTDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C9DEE1E964E2100B5C7D3 /* LYTDatabaseAdditions.m */; };
 		594C9DF81E964E2100B5C7D3 /* LYTDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C9DF01E964E2100B5C7D3 /* LYTDatabasePool.m */; };
@@ -78,6 +80,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		59086E9B1E976E8C0069965A /* LYTDNSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTDNSViewController.h; sourceTree = "<group>"; };
+		59086E9C1E976E8C0069965A /* LYTDNSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTDNSViewController.m; sourceTree = "<group>"; };
+		59086E9D1E976E8C0069965A /* LYTDNSViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LYTDNSViewController.xib; sourceTree = "<group>"; };
 		594C9DEB1E964E2100B5C7D3 /* LYTDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTDatabase.h; sourceTree = "<group>"; };
 		594C9DEC1E964E2100B5C7D3 /* LYTDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTDatabase.m; sourceTree = "<group>"; };
 		594C9DED1E964E2100B5C7D3 /* LYTDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -228,6 +233,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		59086E9A1E976E710069965A /* DNS */ = {
+			isa = PBXGroup;
+			children = (
+				59086E9B1E976E8C0069965A /* LYTDNSViewController.h */,
+				59086E9C1E976E8C0069965A /* LYTDNSViewController.m */,
+				59086E9D1E976E8C0069965A /* LYTDNSViewController.xib */,
+			);
+			path = DNS;
+			sourceTree = "<group>";
+		};
 		594C9DEA1E964E2100B5C7D3 /* LYTdb */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,6 +434,7 @@
 		59F41A6B1E94E9D30080051F /* 控制台 */ = {
 			isa = PBXGroup;
 			children = (
+				59086E9A1E976E710069965A /* DNS */,
 				5966AC961E9728CF00A5A870 /* traceroute */,
 				59F41A711E94EC110080051F /* ping */,
 			);
@@ -593,6 +609,7 @@
 				59F41A761E94EC110080051F /* LYTPingViewController.xib in Resources */,
 				59F41A5F1E94E6C50080051F /* LICENSE in Resources */,
 				DEA33BC81E835FDE00AE35F9 /* Assets.xcassets in Resources */,
+				59086E9F1E976E8C0069965A /* LYTDNSViewController.xib in Resources */,
 				DEA33BC61E835FDE00AE35F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -644,6 +661,7 @@
 				59F41A851E9619330080051F /* UIColor+Separate.m in Sources */,
 				5966AC8F1E97242B00A5A870 /* UIImage+GreyImage.m in Sources */,
 				DEA33BD81E83687700AE35F9 /* LYTNetGetAddress.m in Sources */,
+				59086E9E1E976E8C0069965A /* LYTDNSViewController.m in Sources */,
 				59F41A411E94E4C00080051F /* LYTScreenView.m in Sources */,
 				5966AC8C1E97241A00A5A870 /* UIImage+Round.m in Sources */,
 				5966AC861E9723B000A5A870 /* TYHbaseNavigationVC.m in Sources */,

@@ -25,8 +25,10 @@
                                 className:@"TracerouteViewController2",
                                 },
                               @{title:@"DNS",
-                                desTitle:@"",
-                                imageName:@""},
+                                desTitle:@"因特网上作为域名和IP地址相互映射的一个分布式数据库，能够使用户更方便的访问互联网，而不用去记住能够被机器直接读取的IP数串。",
+                                imageName:@"",
+                                className:@"LYTDNSViewController"
+                                },
                               @{title:@"端口检测",
                                 desTitle:@"",
                                 imageName:@""},
