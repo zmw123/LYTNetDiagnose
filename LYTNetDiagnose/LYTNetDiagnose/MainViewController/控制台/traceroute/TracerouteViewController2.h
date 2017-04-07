@@ -1,5 +1,5 @@
 //
-//  TracerouteViewController.h
+//  TracerouteViewController2.h
 //  LYTNetDiagnose
 //
 //  Created by 谭建中 on 2017/4/7.
@@ -8,6 +8,6 @@
 
 #import "TYHBaseViewController.h"
 
-@interface TracerouteViewController : TYHBaseViewController
+@interface TracerouteViewController2 : TYHBaseViewController
 
 @end

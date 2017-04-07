@@ -89,7 +89,7 @@
                     </state>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.87833553552627563" green="0.87848657369613647" blue="0.87832605838775635" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fML-mA-Y4v" firstAttribute="leading" secondItem="Vhy-RY-5F1" secondAttribute="leading" id="1JP-uN-zlM"/>
                 <constraint firstItem="4jp-Qe-o4e" firstAttribute="leading" secondItem="vVt-CI-2Rv" secondAttribute="leading" id="5lE-Hg-w3O"/>

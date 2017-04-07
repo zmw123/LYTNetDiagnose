@@ -15,16 +15,16 @@
 @implementation LYTConfig
 + (NSArray *)mainViewArray{
     NSArray *array = @[
-                              @{title:@"ping检测",
+                              @{title:@"ping",
                                 desTitle:@"利用“ping”命令可以检查网络是否连通，可以很好地帮助我们分析和判定网络故障",
                                 imageName:@"",
                                 className:@"LYTPingViewController"},
-                              @{title:@"路由跟踪",
+                              @{title:@"Traceroute",
                                 desTitle:@"用来发出数据包的主机到目标主机之间所经过的网关的工具",
                                 imageName:@"",
-                                className:@"TracerouteViewController",
+                                className:@"TracerouteViewController2",
                                 },
-                              @{title:@"DNS检测",
+                              @{title:@"DNS",
                                 desTitle:@"",
                                 imageName:@""},
                               @{title:@"端口检测",

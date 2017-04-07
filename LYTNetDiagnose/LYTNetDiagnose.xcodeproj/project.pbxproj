@@ -21,8 +21,9 @@
 		5966AC8F1E97242B00A5A870 /* UIImage+GreyImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5966AC8E1E97242B00A5A870 /* UIImage+GreyImage.m */; };
 		5966AC921E97243900A5A870 /* UIColor+TYHColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5966AC911E97243900A5A870 /* UIColor+TYHColor.m */; };
 		5966AC951E97244B00A5A870 /* UIImage+CH.m in Sources */ = {isa = PBXBuildFile; fileRef = 5966AC941E97244B00A5A870 /* UIImage+CH.m */; };
-		5966AC991E9728E700A5A870 /* TracerouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5966AC981E9728E700A5A870 /* TracerouteViewController.m */; };
 		5966AC9C1E972AE300A5A870 /* LYTNetTraceRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 5966AC9B1E972AE300A5A870 /* LYTNetTraceRoute.m */; };
+		5966ACA01E97390A00A5A870 /* TracerouteViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 5966AC9E1E97390A00A5A870 /* TracerouteViewController2.m */; };
+		5966ACA11E97390A00A5A870 /* TracerouteViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5966AC9F1E97390A00A5A870 /* TracerouteViewController2.xib */; };
 		59F419E61E949B940080051F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F419E51E949B940080051F /* MainViewController.m */; };
 		59F419EC1E949BE50080051F /* MainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F419EA1E949BE50080051F /* MainViewCell.m */; };
 		59F419ED1E949BE50080051F /* MainViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59F419EB1E949BE50080051F /* MainViewCell.xib */; };
@@ -105,10 +106,11 @@
 		5966AC911E97243900A5A870 /* UIColor+TYHColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TYHColor.m"; sourceTree = "<group>"; };
 		5966AC931E97244B00A5A870 /* UIImage+CH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CH.h"; sourceTree = "<group>"; };
 		5966AC941E97244B00A5A870 /* UIImage+CH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CH.m"; sourceTree = "<group>"; };
-		5966AC971E9728E700A5A870 /* TracerouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TracerouteViewController.h; sourceTree = "<group>"; };
-		5966AC981E9728E700A5A870 /* TracerouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TracerouteViewController.m; sourceTree = "<group>"; };
 		5966AC9A1E972AE300A5A870 /* LYTNetTraceRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTNetTraceRoute.h; sourceTree = "<group>"; };
 		5966AC9B1E972AE300A5A870 /* LYTNetTraceRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTNetTraceRoute.m; sourceTree = "<group>"; };
+		5966AC9D1E97390A00A5A870 /* TracerouteViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TracerouteViewController2.h; sourceTree = "<group>"; };
+		5966AC9E1E97390A00A5A870 /* TracerouteViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TracerouteViewController2.m; sourceTree = "<group>"; };
+		5966AC9F1E97390A00A5A870 /* TracerouteViewController2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TracerouteViewController2.xib; sourceTree = "<group>"; };
 		59F419E41E949B940080051F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		59F419E51E949B940080051F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		59F419E91E949BE50080051F /* MainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewCell.h; sourceTree = "<group>"; };
@@ -258,8 +260,9 @@
 		5966AC961E9728CF00A5A870 /* traceroute */ = {
 			isa = PBXGroup;
 			children = (
-				5966AC971E9728E700A5A870 /* TracerouteViewController.h */,
-				5966AC981E9728E700A5A870 /* TracerouteViewController.m */,
+				5966AC9D1E97390A00A5A870 /* TracerouteViewController2.h */,
+				5966AC9E1E97390A00A5A870 /* TracerouteViewController2.m */,
+				5966AC9F1E97390A00A5A870 /* TracerouteViewController2.xib */,
 			);
 			path = traceroute;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 			files = (
 				59F419ED1E949BE50080051F /* MainViewCell.xib in Resources */,
 				DEA33BCB1E835FDE00AE35F9 /* LaunchScreen.storyboard in Resources */,
+				5966ACA11E97390A00A5A870 /* TracerouteViewController2.xib in Resources */,
 				59F41A761E94EC110080051F /* LYTPingViewController.xib in Resources */,
 				59F41A5F1E94E6C50080051F /* LICENSE in Resources */,
 				DEA33BC81E835FDE00AE35F9 /* Assets.xcassets in Resources */,
@@ -614,7 +618,6 @@
 				59F41A6A1E94E6C50080051F /* README.md in Sources */,
 				59F41A861E9619330080051F /* UIColor+Wonderful.m in Sources */,
 				59F41A7C1E9618BA0080051F /* LYTSimplePing.m in Sources */,
-				5966AC991E9728E700A5A870 /* TracerouteViewController.m in Sources */,
 				DEA33BD51E83601800AE35F9 /* LYTNetDiagnoser.m in Sources */,
 				59F41A671E94E6C50080051F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				5966AC921E97243900A5A870 /* UIColor+TYHColor.m in Sources */,
@@ -651,6 +654,7 @@
 				59F419F01E949D4D0080051F /* MainViewModel.m in Sources */,
 				DEA33C121E85265D00AE35F9 /* LYTColorRank.m in Sources */,
 				59F41A751E94EC110080051F /* LYTPingViewController.m in Sources */,
+				5966ACA01E97390A00A5A870 /* TracerouteViewController2.m in Sources */,
 				59F41A331E94AA1E0080051F /* MJProperty.m in Sources */,
 				59F41A311E94AA1E0080051F /* MJExtensionConst.m in Sources */,
 				59F41A891E9619460080051F /* UIView+Extension.m in Sources */,
