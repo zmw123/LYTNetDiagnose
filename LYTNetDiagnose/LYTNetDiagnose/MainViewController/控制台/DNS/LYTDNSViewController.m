@@ -59,12 +59,37 @@
     }];
 }
 - (IBAction)clickAddbtn:(UIButton *)sender {
-    
+    [self.view endEditing:YES];
+    [[LYTSDKDataBase shareDatabase] dbAllServersSucceed:^(NSArray<NSString *> *servers) {
+        __block BOOL exist = NO;
+        [servers enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj isEqualToString:self.domainTextField.text]) {
+                exist = YES;
+            }
+        }];
+        if (exist) {
+            
+            [self addLog:@"该域名主机已经存在\n"];
+        }
+        else
+        {
+            [[LYTSDKDataBase shareDatabase] dbInsertserver:self.domainTextField.text succeed:^(BOOL result) {
+                [self addLog:@"添加域名主机成功\n"];
+            }];
+        }
+    }];
 }
 - (IBAction)DNSClick:(UIButton *)sender {
     [[LYTNetDiagnoser shareTool] getDNSFromDomain:self.domainTextField.text respose:^(LYTPingInfo *info) {
-        NSString *log = [NSString stringWithFormat:@"%@\n",info.infoStr];
-        [self addLog:log];
+        if (info.infoArray.count == 0) {
+            NSString *log = [NSString stringWithFormat:@"%@\n DNS无法解析\n",self.domainTextField.text];
+            [self addLog:log];
+        }
+        else
+        {
+            NSString *log = [NSString stringWithFormat:@"%@\n %@\n",self.domainTextField.text,info.infoStr];
+            [self addLog:log];
+        }
     }];
 }
 

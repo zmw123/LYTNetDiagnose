@@ -13,12 +13,12 @@
 #import "LYTConfig.h"
 #import "LYTSDKDataBase+LYTServersList.h"
 
+static NSMutableString *_log;
 @interface TracerouteViewController2 ()<LYTNetTraceRouteDelegate>
 {
     LYTNetTraceRoute *_traceRouter;
     LYTScreenView *_screeenView;
     NSString * _dormain;
-    NSMutableString *_log;
 }
 @property (nonatomic,assign) BOOL running;
 
@@ -31,13 +31,13 @@
 @end
 
 @implementation TracerouteViewController2
-
++ (void)initialize{
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Traceroute";
     _log = [@"" mutableCopy];
     [self screeenView];
-    
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -49,6 +49,10 @@
         [self.view addSubview:_screeenView];
     }
     return _screeenView;
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
 }
 #pragma mark - traceRouteDelegate
 - (void)appendRouteLog:(NSString *)routeLog

@@ -50,7 +50,11 @@
                     <textInputTraits key="textInputTraits" keyboardType="URL"/>
                 </textField>
                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6l-k3-61F">
-                    <rect key="frame" x="330" y="118.5" width="30" height="29"/>
+                    <rect key="frame" x="325" y="113.5" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="Q0A-Qd-vJY"/>
+                        <constraint firstAttribute="height" constant="40" id="h1C-l9-ccU"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="开始">
                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -64,12 +68,11 @@
             <constraints>
                 <constraint firstItem="yK5-F1-xah" firstAttribute="centerY" secondItem="ztb-Zo-zZe" secondAttribute="centerY" id="1CL-X7-Okt"/>
                 <constraint firstItem="ztb-Zo-zZe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="2DU-fZ-Xkb"/>
+                <constraint firstItem="h6l-k3-61F" firstAttribute="centerX" secondItem="yK5-F1-xah" secondAttribute="centerX" id="8Oe-io-iff"/>
                 <constraint firstItem="qWw-9z-lMc" firstAttribute="leading" secondItem="ztb-Zo-zZe" secondAttribute="trailing" constant="5" id="DSW-xf-QhM"/>
-                <constraint firstItem="h6l-k3-61F" firstAttribute="leading" secondItem="yK5-F1-xah" secondAttribute="leading" id="MKk-YF-EGK"/>
-                <constraint firstItem="h6l-k3-61F" firstAttribute="top" secondItem="yK5-F1-xah" secondAttribute="bottom" constant="10" id="PDi-7e-dXr"/>
+                <constraint firstItem="h6l-k3-61F" firstAttribute="top" secondItem="yK5-F1-xah" secondAttribute="bottom" constant="5" id="PA1-3Z-3HT"/>
                 <constraint firstItem="yK5-F1-xah" firstAttribute="leading" secondItem="qWw-9z-lMc" secondAttribute="trailing" constant="5" id="WkH-Ul-c0p"/>
                 <constraint firstAttribute="trailing" secondItem="yK5-F1-xah" secondAttribute="trailing" constant="15" id="lV9-ds-dd5"/>
-                <constraint firstItem="h6l-k3-61F" firstAttribute="trailing" secondItem="yK5-F1-xah" secondAttribute="trailing" id="mcn-80-XVl"/>
                 <constraint firstItem="ztb-Zo-zZe" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="85" id="nfc-SO-R6p"/>
                 <constraint firstItem="qWw-9z-lMc" firstAttribute="centerY" secondItem="ztb-Zo-zZe" secondAttribute="centerY" id="tps-zC-QNi"/>
             </constraints>
