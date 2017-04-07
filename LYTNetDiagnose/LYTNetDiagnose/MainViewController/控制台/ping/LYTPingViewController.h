@@ -6,7 +6,6 @@
 //  Copyright © 2017年 Vieene. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "TYHBaseViewController.h"
 @protocol LYTPingViewControllerDelegate <NSObject>
 
