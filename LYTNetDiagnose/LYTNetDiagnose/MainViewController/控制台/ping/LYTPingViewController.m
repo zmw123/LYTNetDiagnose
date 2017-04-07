@@ -32,7 +32,7 @@ static NSMutableString * _log;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"ping检测";
+    self.title = @"ping";
     _log = [@"" mutableCopy];
     [self screenView];
     

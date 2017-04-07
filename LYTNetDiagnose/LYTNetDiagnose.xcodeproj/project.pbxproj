@@ -22,6 +22,7 @@
 		5966AC921E97243900A5A870 /* UIColor+TYHColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5966AC911E97243900A5A870 /* UIColor+TYHColor.m */; };
 		5966AC951E97244B00A5A870 /* UIImage+CH.m in Sources */ = {isa = PBXBuildFile; fileRef = 5966AC941E97244B00A5A870 /* UIImage+CH.m */; };
 		5966AC991E9728E700A5A870 /* TracerouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5966AC981E9728E700A5A870 /* TracerouteViewController.m */; };
+		5966AC9C1E972AE300A5A870 /* LYTNetTraceRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 5966AC9B1E972AE300A5A870 /* LYTNetTraceRoute.m */; };
 		59F419E61E949B940080051F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F419E51E949B940080051F /* MainViewController.m */; };
 		59F419EC1E949BE50080051F /* MainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F419EA1E949BE50080051F /* MainViewCell.m */; };
 		59F419ED1E949BE50080051F /* MainViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59F419EB1E949BE50080051F /* MainViewCell.xib */; };
@@ -106,6 +107,8 @@
 		5966AC941E97244B00A5A870 /* UIImage+CH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CH.m"; sourceTree = "<group>"; };
 		5966AC971E9728E700A5A870 /* TracerouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TracerouteViewController.h; sourceTree = "<group>"; };
 		5966AC981E9728E700A5A870 /* TracerouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TracerouteViewController.m; sourceTree = "<group>"; };
+		5966AC9A1E972AE300A5A870 /* LYTNetTraceRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTNetTraceRoute.h; sourceTree = "<group>"; };
+		5966AC9B1E972AE300A5A870 /* LYTNetTraceRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTNetTraceRoute.m; sourceTree = "<group>"; };
 		59F419E41E949B940080051F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		59F419E51E949B940080051F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		59F419E91E949BE50080051F /* MainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewCell.h; sourceTree = "<group>"; };
@@ -490,6 +493,8 @@
 		DEA33BD21E83600500AE35F9 /* LYTNetDiagnoser */ = {
 			isa = PBXGroup;
 			children = (
+				5966AC9A1E972AE300A5A870 /* LYTNetTraceRoute.h */,
+				5966AC9B1E972AE300A5A870 /* LYTNetTraceRoute.m */,
 				59F41A771E9618BA0080051F /* SRPingHepler */,
 				DEA33BD31E83601800AE35F9 /* LYTNetDiagnoser.h */,
 				DEA33BD41E83601800AE35F9 /* LYTNetDiagnoser.m */,
@@ -622,6 +627,7 @@
 				DEA33BC01E835FDE00AE35F9 /* AppDelegate.m in Sources */,
 				594C9E001E964EF800B5C7D3 /* LYTSDKDataBase.m in Sources */,
 				594C9DF71E964E2100B5C7D3 /* LYTDatabaseAdditions.m in Sources */,
+				5966AC9C1E972AE300A5A870 /* LYTNetTraceRoute.m in Sources */,
 				594C9E061E9650C000B5C7D3 /* LYTSDKDataBase+LYTServersList.m in Sources */,
 				59F41A381E94AA1E0080051F /* NSObject+MJKeyValue.m in Sources */,
 				594C9DF81E964E2100B5C7D3 /* LYTDatabasePool.m in Sources */,
