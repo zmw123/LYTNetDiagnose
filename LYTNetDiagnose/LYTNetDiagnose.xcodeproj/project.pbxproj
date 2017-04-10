@@ -63,6 +63,8 @@
 		59F41A851E9619330080051F /* UIColor+Separate.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F41A821E9619330080051F /* UIColor+Separate.m */; };
 		59F41A861E9619330080051F /* UIColor+Wonderful.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F41A841E9619330080051F /* UIColor+Wonderful.m */; };
 		59F41A891E9619460080051F /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F41A881E9619460080051F /* UIView+Extension.m */; };
+		DE576A5E1E9B39110070155D /* TYHPortScanController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE576A5D1E9B39110070155D /* TYHPortScanController.m */; };
+		DE576A601E9B39230070155D /* TYHPortScanController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE576A5F1E9B39230070155D /* TYHPortScanController.xib */; };
 		DEA33BBD1E835FDE00AE35F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33BBC1E835FDE00AE35F9 /* main.m */; };
 		DEA33BC01E835FDE00AE35F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33BBF1E835FDE00AE35F9 /* AppDelegate.m */; };
 		DEA33BC61E835FDE00AE35F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEA33BC41E835FDE00AE35F9 /* Main.storyboard */; };
@@ -192,6 +194,9 @@
 		59F41A841E9619330080051F /* UIColor+Wonderful.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Wonderful.m"; sourceTree = "<group>"; };
 		59F41A871E9619460080051F /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		59F41A881E9619460080051F /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		DE576A5C1E9B39110070155D /* TYHPortScanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYHPortScanController.h; sourceTree = "<group>"; };
+		DE576A5D1E9B39110070155D /* TYHPortScanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYHPortScanController.m; sourceTree = "<group>"; };
+		DE576A5F1E9B39230070155D /* TYHPortScanController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TYHPortScanController.xib; sourceTree = "<group>"; };
 		DEA33BB81E835FDE00AE35F9 /* LYTNetDiagnose.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LYTNetDiagnose.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA33BBC1E835FDE00AE35F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DEA33BBE1E835FDE00AE35F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -434,6 +439,7 @@
 		59F41A6B1E94E9D30080051F /* 控制台 */ = {
 			isa = PBXGroup;
 			children = (
+				DE576A5B1E9B38DB0070155D /* 端口探测 */,
 				59086E9A1E976E710069965A /* DNS */,
 				5966AC961E9728CF00A5A870 /* traceroute */,
 				59F41A711E94EC110080051F /* ping */,
@@ -462,6 +468,16 @@
 				59F41A7B1E9618BA0080051F /* LYTPingHelper.m */,
 			);
 			path = SRPingHepler;
+			sourceTree = "<group>";
+		};
+		DE576A5B1E9B38DB0070155D /* 端口探测 */ = {
+			isa = PBXGroup;
+			children = (
+				DE576A5C1E9B39110070155D /* TYHPortScanController.h */,
+				DE576A5D1E9B39110070155D /* TYHPortScanController.m */,
+				DE576A5F1E9B39230070155D /* TYHPortScanController.xib */,
+			);
+			path = "端口探测";
 			sourceTree = "<group>";
 		};
 		DEA33BAF1E835FDE00AE35F9 = {
@@ -608,6 +624,7 @@
 				5966ACA11E97390A00A5A870 /* TracerouteViewController2.xib in Resources */,
 				59F41A761E94EC110080051F /* LYTPingViewController.xib in Resources */,
 				59F41A5F1E94E6C50080051F /* LICENSE in Resources */,
+				DE576A601E9B39230070155D /* TYHPortScanController.xib in Resources */,
 				DEA33BC81E835FDE00AE35F9 /* Assets.xcassets in Resources */,
 				59086E9F1E976E8C0069965A /* LYTDNSViewController.xib in Resources */,
 				DEA33BC61E835FDE00AE35F9 /* Main.storyboard in Resources */,
@@ -662,6 +679,7 @@
 				5966AC8F1E97242B00A5A870 /* UIImage+GreyImage.m in Sources */,
 				DEA33BD81E83687700AE35F9 /* LYTNetGetAddress.m in Sources */,
 				59086E9E1E976E8C0069965A /* LYTDNSViewController.m in Sources */,
+				DE576A5E1E9B39110070155D /* TYHPortScanController.m in Sources */,
 				59F41A411E94E4C00080051F /* LYTScreenView.m in Sources */,
 				5966AC8C1E97241A00A5A870 /* UIImage+Round.m in Sources */,
 				5966AC861E9723B000A5A870 /* TYHbaseNavigationVC.m in Sources */,
