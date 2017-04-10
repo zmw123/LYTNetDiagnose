@@ -31,7 +31,10 @@
                                 },
                               @{title:@"端口检测",
                                 desTitle:@"",
-                                imageName:@""},
+                                imageName:@"",
+                                className:@"TYHPortScanController",
+                                },
+                              
                               @{title:@"局域网扫描",
                                 desTitle:@"",
                                 imageName:@""},
