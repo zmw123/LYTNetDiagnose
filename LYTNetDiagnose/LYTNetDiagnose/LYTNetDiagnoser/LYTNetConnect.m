@@ -14,7 +14,7 @@
 #import "LYTNetConnect.h"
 #import "LYTNetTimer.h"
 
-
+static int timeOut = 3;
 @interface LYTNetConnect () {
     BOOL _isExistSuccess;  //监测是否有connect成功
     NSInteger _connectCount;     //当前执行次数
@@ -112,12 +112,13 @@
                              kCFSocketConnectCallBack, TCPServerConnectCallBack, &CTX);
     
     //执行连接
-    CFSocketConnectToAddress(_socket, (__bridge CFDataRef)addr, 3);
+    CFSocketConnectToAddress(_socket, (__bridge CFDataRef)addr, timeOut);
     CFRunLoopRef cfrl = CFRunLoopGetCurrent();  // 获取当前运行循环
     CFRunLoopSourceRef source =
     CFSocketCreateRunLoopSource(kCFAllocatorDefault, _socket, _connectCount);  //定义循环对象
     CFRunLoopAddSource(cfrl, source, kCFRunLoopDefaultMode);  //将循环对象加入当前循环中
     CFRelease(source);
+    
 }
 
 
@@ -127,8 +128,9 @@
 static void TCPServerConnectCallBack(CFSocketRef socket, CFSocketCallBackType type,
                                      CFDataRef address, const void *data, void *info)
 {
+    NSLog(@"TCPServerConnectCallBack - data = %zd",sizeof(data));
     if (data != NULL) {
-        printf("connect");
+        NSLog(@"连接失败");
         LYTNetConnect *con = (__bridge_transfer LYTNetConnect *)info;
         [con readStream:FALSE];
     } else {
@@ -148,14 +150,13 @@ static void TCPServerConnectCallBack(CFSocketRef socket, CFSocketCallBackType ty
         _isExistSuccess = TRUE;
         NSInteger interval = [LYTNetTimer computeDurationSince:_startTime] / 1000;
         _sumTime += interval;
-        NSLog(@"connect success %ld", (long)interval);
         _resultLog = [_resultLog
-            stringByAppendingString:[NSString stringWithFormat:@"%zd's time=%ldms, ",
+            stringByAppendingString:[NSString stringWithFormat:@"host:%@% zd's time=%ldms, \n",_hostAddress,
                                                                _connectCount + 1, (long)interval]];
     } else {
         _sumTime = 99999;
         _resultLog =
-            [_resultLog stringByAppendingString:[NSString stringWithFormat:@"%zd's time=TimeOut, ",
+            [_resultLog stringByAppendingString:[NSString stringWithFormat:@"host:%@ %zd's time=TimeOut, \n",_hostAddress,
                                                                            _connectCount + 1]];
     }
     if (_connectCount == MAXCOUNT_CONNECT - 1) {
