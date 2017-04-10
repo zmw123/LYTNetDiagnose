@@ -23,7 +23,7 @@
  * 主要是通过建立socket连接的过程，监控目标主机是否连通
  * 连续执行五次，因为每次的速度不一致，可以观察其平均速度来判断网络情况
  */
-@interface LDNetConnect : NSObject {
+@interface LYTNetConnect : NSObject {
 }
 
 @property (nonatomic, weak) id<LDNetConnectDelegate> delegate;
@@ -31,7 +31,7 @@
 /**
  * 通过hostaddress和port 进行connect诊断
  */
-- (void)runWithHostAddress:(NSString *)hostAddress port:(int)port;
+- (void)runWithHostAddress:(NSString *)hostAddress port:(NSInteger)port maxTestCount:(NSInteger)testCount;
 
 /**
  * 停止connect

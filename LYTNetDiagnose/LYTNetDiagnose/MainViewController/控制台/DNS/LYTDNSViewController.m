@@ -80,6 +80,8 @@
     }];
 }
 - (IBAction)DNSClick:(UIButton *)sender {
+    
+    
     [[LYTNetDiagnoser shareTool] getDNSFromDomain:self.domainTextField.text respose:^(LYTPingInfo *info) {
         if (info.infoArray.count == 0) {
             NSString *log = [NSString stringWithFormat:@"%@\n DNS无法解析\n",self.domainTextField.text];

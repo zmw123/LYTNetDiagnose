@@ -15,6 +15,7 @@
 #import "LYTNetTimer.h"
 #import "LYTPingInfo.h"
 #import "LYTPingHelper.h"
+#import "NSString+NetTool.h"
 
 typedef void(^INFOBlock)(LYTPingInfo * statues);
 
@@ -143,24 +144,29 @@ typedef void(^INFOBlock)(LYTPingInfo * statues);
 
 - (void)testPingRequestDomain:(NSString *)domainName count:(NSInteger)times respose:(void(^)(LYTPingInfo * info))resposeblock error:(void(^)(NSString *error))errorBlock{
     //纯数字
-    
-    //域名
-    [self getDNSFromDomain:domainName respose:^(LYTPingInfo *info) {
-        dispatch_async(_serialQueue, ^{
-            if(info.infoArray.count){
-                self.infoBlock =  [resposeblock copy];
-                [_netPinger setHost:info.infoArray[0]];
-                _netPinger.delegate = self;
-                _netPinger.pingCount = times;
-                [_netPinger startPing];
-            }else{
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                   errorBlock(@"域名解析失败!!! 请检查域名和网络\n");
-                });
-            }
-        });
-    }];
-    
+    if([domainName isIPaddress]){
+        [_netPinger setHost:domainName];
+        _netPinger.delegate = self;
+        _netPinger.pingCount = times;
+        [_netPinger startPing];
+    }else{
+        //域名
+        [self getDNSFromDomain:domainName respose:^(LYTPingInfo *info) {
+            dispatch_async(_serialQueue, ^{
+                if(info.infoArray.count){
+                    self.infoBlock =  [resposeblock copy];
+                    [_netPinger setHost:info.infoArray[0]];
+                    _netPinger.delegate = self;
+                    _netPinger.pingCount = times;
+                    [_netPinger startPing];
+                }else{
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        errorBlock(@"域名解析失败!!! 请检查域名和网络\n");
+                    });
+                }
+            });
+        }];
+    }
 }
 
 - (void)stopTestPing{

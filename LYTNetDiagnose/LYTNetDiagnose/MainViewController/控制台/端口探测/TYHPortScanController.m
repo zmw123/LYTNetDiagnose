@@ -11,12 +11,14 @@
 #import "LYTScreenView.h"   
 #import "LYTConfig.h"
 #import "LYTNetDiagnoser.h"
+#import "LYTConfig.h"
+#import "LYTNetConnect.h"
 
-@interface TYHPortScanController ()
+@interface TYHPortScanController ()<LDNetConnectDelegate>
 {
     NSMutableString *_log;
     LYTScreenView *_screeenView;
-    
+    LYTNetConnect * _netConnect;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *domainTextField;
@@ -33,6 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"端口检测";
+    _log = [@"" mutableCopy];
     [self screeenView];
 }
 - (LYTScreenView *)screeenView{
@@ -56,21 +59,41 @@
     }];
 }
 - (IBAction)clickStart:(UIButton *)sender {
-    //DNS解析
-    [[LYTNetDiagnoser shareTool] getDNSFromDomain:self.domainTextField.text respose:^(LYTPingInfo *info) {
-//        if ([info.infoArray count] > 0) {
-//            _netConnect = [[LDNetConnect alloc] init];
-//            _netConnect.delegate = self;
-//            for (int i = 0; i < [_hostAddress count]; i++) {
-//                [_netConnect runWithHostAddress:[_hostAddress objectAtIndex:i] port:81];
-//            }
-//        } else {
-//            [self recordStepInfo:@"DNS解析失败，主机地址不可达"];
-//        }
-    }];
-    
- 
+    if([self.domainTextField.text isIPaddress]){
+        _netConnect = [[LYTNetConnect alloc] init];
+        _netConnect.delegate = self;
+        [_netConnect runWithHostAddress:self.domainTextField.text port:[self.conectPort.text integerValue] maxTestCount:[self.conectTimes.text integerValue]];
+    }else{
+        //DNS解析
+        [[LYTNetDiagnoser shareTool] getDNSFromDomain:self.domainTextField.text respose:^(LYTPingInfo *info) {
+            if ([info.infoArray count] > 0) {
+        
+                for (int i = 0; i < [info.infoArray count]; i++) {
+                    _netConnect = [[LYTNetConnect alloc] init];
+                    _netConnect.delegate = self;
+                    [_netConnect runWithHostAddress:[info.infoArray objectAtIndex:i] port:[self.conectPort.text integerValue] maxTestCount:[self.conectTimes.text integerValue]];
+                }
+            } else {
+                [self addLog:@"DNS解析失败，主机地址不可达"];
+            }
+        }];
+    }
 }
+#pragma mark - LDNetConnectDelegate
+- (void)appendSocketLog:(NSString *)socketLog{
+    [self addLog:socketLog];
+
+}
+- (void)connectDidEnd:(BOOL)success{
+    
+    if (success) {
+        [self addLog:@"检测完成"];
+    }else{
+        [self addLog:@"检测失败！"];
+    }
+    
+}
+
 
 - (IBAction)clickAdd:(UIButton *)sender {
     [self.view endEditing:YES];

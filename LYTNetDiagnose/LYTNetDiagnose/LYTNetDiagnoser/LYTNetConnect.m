@@ -11,28 +11,29 @@
 #import <arpa/inet.h>
 #import <unistd.h>
 
-#import "LDNetConnect.h"
+#import "LYTNetConnect.h"
 #import "LYTNetTimer.h"
 
-#define MAXCOUNT_CONNECT 4
 
-@interface LDNetConnect () {
+@interface LYTNetConnect () {
     BOOL _isExistSuccess;  //监测是否有connect成功
-    int _connectCount;     //当前执行次数
+    NSInteger _connectCount;     //当前执行次数
 
-    int tcpPort;             //执行端口
+    NSInteger tcpPort;             //执行端口
     NSString *_hostAddress;  //目标域名的IP地址
     BOOL _isIPV6;
     NSString *_resultLog;
     NSInteger _sumTime;
     CFSocketRef _socket;
+    NSInteger MAXCOUNT_CONNECT;
+    
 }
 
 @property (nonatomic, assign) long _startTime;  //每次执行的开始时间
 
 @end
 
-@implementation LDNetConnect
+@implementation LYTNetConnect
 @synthesize _startTime;
 
 /**
@@ -46,24 +47,28 @@
 /**
  * 通过hostaddress和port 进行connect诊断
  */
-- (void)runWithHostAddress:(NSString *)hostAddress port:(int)port
+- (void)runWithHostAddress:(NSString *)hostAddress port:(NSInteger)port maxTestCount:(NSInteger)testCount;
 {
-    _hostAddress = hostAddress;
-    _isIPV6 = [_hostAddress rangeOfString:@":"].location == NSNotFound?NO:YES;
-    tcpPort = port;
-    _isExistSuccess = FALSE;
-    _connectCount = 0;
-    _sumTime = 0;
-    _resultLog = @"";
-    if (self.delegate && [self.delegate respondsToSelector:@selector(appendSocketLog:)]) {
-        [self.delegate
-            appendSocketLog:[NSString stringWithFormat:@"connect to host %@ ...", _hostAddress]];
-    }
-    _startTime = [LYTNetTimer getMicroSeconds];
-    [self connect];
-    do {
-        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
-    } while (_connectCount < MAXCOUNT_CONNECT);
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        _hostAddress = hostAddress;
+        MAXCOUNT_CONNECT = testCount;
+        _isIPV6 = [_hostAddress rangeOfString:@":"].location == NSNotFound?NO:YES;
+        tcpPort = port;
+        _isExistSuccess = FALSE;
+        _connectCount = 0;
+        _sumTime = 0;
+        _resultLog = @"";
+        if (self.delegate && [self.delegate respondsToSelector:@selector(appendSocketLog:)]) {
+            [self.delegate
+             appendSocketLog:[NSString stringWithFormat:@"connect to host %@ ...", _hostAddress]];
+        }
+        _startTime = [LYTNetTimer getMicroSeconds];
+        [self connect];
+        do {
+            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+        } while (_connectCount < MAXCOUNT_CONNECT);
+
+    });
 }
 
 /**
@@ -124,11 +129,11 @@ static void TCPServerConnectCallBack(CFSocketRef socket, CFSocketCallBackType ty
 {
     if (data != NULL) {
         printf("connect");
-        LDNetConnect *con = (__bridge_transfer LDNetConnect *)info;
+        LYTNetConnect *con = (__bridge_transfer LYTNetConnect *)info;
         [con readStream:FALSE];
     } else {
 
-        LDNetConnect *con = (__bridge_transfer LDNetConnect *)info;
+        LYTNetConnect *con = (__bridge_transfer LYTNetConnect *)info;
         [con readStream:TRUE];
     }
 }
@@ -145,12 +150,12 @@ static void TCPServerConnectCallBack(CFSocketRef socket, CFSocketCallBackType ty
         _sumTime += interval;
         NSLog(@"connect success %ld", (long)interval);
         _resultLog = [_resultLog
-            stringByAppendingString:[NSString stringWithFormat:@"%d's time=%ldms, ",
+            stringByAppendingString:[NSString stringWithFormat:@"%zd's time=%ldms, ",
                                                                _connectCount + 1, (long)interval]];
     } else {
         _sumTime = 99999;
         _resultLog =
-            [_resultLog stringByAppendingString:[NSString stringWithFormat:@"%d's time=TimeOut, ",
+            [_resultLog stringByAppendingString:[NSString stringWithFormat:@"%zd's time=TimeOut, ",
                                                                            _connectCount + 1]];
     }
     if (_connectCount == MAXCOUNT_CONNECT - 1) {

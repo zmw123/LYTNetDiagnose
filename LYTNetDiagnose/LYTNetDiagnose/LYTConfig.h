@@ -10,6 +10,8 @@
 #import "Masonry.h"
 #import "LYTSDKDataBase.h"
 #import "LYTSDKDataBase+LYTServersList.h"
+#import "NSString+NetTool.h"
+
 #define TitleFont 19
 #define DestTitleFont 14
 #define contentFont 13

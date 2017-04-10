@@ -65,7 +65,8 @@
 		59F41A891E9619460080051F /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F41A881E9619460080051F /* UIView+Extension.m */; };
 		DE576A5E1E9B39110070155D /* TYHPortScanController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE576A5D1E9B39110070155D /* TYHPortScanController.m */; };
 		DE576A601E9B39230070155D /* TYHPortScanController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE576A5F1E9B39230070155D /* TYHPortScanController.xib */; };
-		DE576A631E9B3DFD0070155D /* LDNetConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = DE576A621E9B3DFD0070155D /* LDNetConnect.m */; };
+		DE576A631E9B3DFD0070155D /* LYTNetConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = DE576A621E9B3DFD0070155D /* LYTNetConnect.m */; };
+		DE576A661E9B64980070155D /* NSString+NetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = DE576A651E9B64980070155D /* NSString+NetTool.m */; };
 		DEA33BBD1E835FDE00AE35F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33BBC1E835FDE00AE35F9 /* main.m */; };
 		DEA33BC01E835FDE00AE35F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA33BBF1E835FDE00AE35F9 /* AppDelegate.m */; };
 		DEA33BC61E835FDE00AE35F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEA33BC41E835FDE00AE35F9 /* Main.storyboard */; };
@@ -198,8 +199,10 @@
 		DE576A5C1E9B39110070155D /* TYHPortScanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYHPortScanController.h; sourceTree = "<group>"; };
 		DE576A5D1E9B39110070155D /* TYHPortScanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYHPortScanController.m; sourceTree = "<group>"; };
 		DE576A5F1E9B39230070155D /* TYHPortScanController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TYHPortScanController.xib; sourceTree = "<group>"; };
-		DE576A611E9B3DED0070155D /* LDNetConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNetConnect.h; sourceTree = "<group>"; };
-		DE576A621E9B3DFD0070155D /* LDNetConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNetConnect.m; sourceTree = "<group>"; };
+		DE576A611E9B3DED0070155D /* LYTNetConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTNetConnect.h; sourceTree = "<group>"; };
+		DE576A621E9B3DFD0070155D /* LYTNetConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTNetConnect.m; sourceTree = "<group>"; };
+		DE576A641E9B64980070155D /* NSString+NetTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NetTool.h"; sourceTree = "<group>"; };
+		DE576A651E9B64980070155D /* NSString+NetTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NetTool.m"; sourceTree = "<group>"; };
 		DEA33BB81E835FDE00AE35F9 /* LYTNetDiagnose.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LYTNetDiagnose.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA33BBC1E835FDE00AE35F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DEA33BBE1E835FDE00AE35F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -348,6 +351,8 @@
 				59F41A3B1E94AA650080051F /* UIImage+Image.h */,
 				59F41A3C1E94AA650080051F /* UIImage+Image.m */,
 				59F41A1A1E94AA1E0080051F /* MJExtension */,
+				DE576A641E9B64980070155D /* NSString+NetTool.h */,
+				DE576A651E9B64980070155D /* NSString+NetTool.m */,
 			);
 			path = "第三方";
 			sourceTree = "<group>";
@@ -549,8 +554,8 @@
 				DEA33BE91E83DA9100AE35F9 /* LYTPingInfo.m */,
 				DEA33C101E85265D00AE35F9 /* LYTColorRank.h */,
 				DEA33C111E85265D00AE35F9 /* LYTColorRank.m */,
-				DE576A611E9B3DED0070155D /* LDNetConnect.h */,
-				DE576A621E9B3DFD0070155D /* LDNetConnect.m */,
+				DE576A611E9B3DED0070155D /* LYTNetConnect.h */,
+				DE576A621E9B3DFD0070155D /* LYTNetConnect.m */,
 			);
 			path = LYTNetDiagnoser;
 			sourceTree = "<group>";
@@ -678,6 +683,7 @@
 				5966AC951E97244B00A5A870 /* UIImage+CH.m in Sources */,
 				59F41A351E94AA1E0080051F /* MJPropertyType.m in Sources */,
 				DEA33BE41E83810400AE35F9 /* LYTNetInfo.m in Sources */,
+				DE576A661E9B64980070155D /* NSString+NetTool.m in Sources */,
 				594C9DFA1E964E2100B5C7D3 /* LYTResultSet.m in Sources */,
 				59F419EC1E949BE50080051F /* MainViewCell.m in Sources */,
 				59F41A851E9619330080051F /* UIColor+Separate.m in Sources */,
@@ -687,7 +693,7 @@
 				DE576A5E1E9B39110070155D /* TYHPortScanController.m in Sources */,
 				59F41A411E94E4C00080051F /* LYTScreenView.m in Sources */,
 				5966AC8C1E97241A00A5A870 /* UIImage+Round.m in Sources */,
-				DE576A631E9B3DFD0070155D /* LDNetConnect.m in Sources */,
+				DE576A631E9B3DFD0070155D /* LYTNetConnect.m in Sources */,
 				5966AC861E9723B000A5A870 /* TYHbaseNavigationVC.m in Sources */,
 				59F41A371E94AA1E0080051F /* NSObject+MJCoding.m in Sources */,
 				59F41A691E94E6C50080051F /* ViewController+MASAdditions.m in Sources */,
