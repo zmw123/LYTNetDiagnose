@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "Masonry.h"
+#import "LYTSDKDataBase.h"
+#import "LYTSDKDataBase+LYTServersList.h"
 #define TitleFont 19
 #define DestTitleFont 14
 #define contentFont 13
